@@ -30,7 +30,6 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.update(job_params)
     redirect_to jobs_path # Need to change the redirect
-
   end
 
   def destroy
@@ -44,7 +43,5 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:job_title, :job_description, :start_date, :end_date, :remuneration)
-
   end
-
 end
