@@ -22,7 +22,8 @@
       <div class="card__details">
 
         <!-- Span with tag class for the tag -->
-        <span class="tag">Waiter/tress</span>
+        <%# interrate over skills? @job.skills  %>
+        <span class="tag">skills</span>
 
         <span class="tag">cooking</span>
 
@@ -39,7 +40,7 @@
 
         <%= simple_form_for([@job, @request]) do |f| %>
           <%= f.input :status, value: 'pending', input_html: {hidden: true} %>
-          <%= f.submit 'Apply' %>
+          <%= f.submit 'Apply', class: 'btn btn-primary'%>
         <% end %>
 
       </div>
