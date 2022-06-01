@@ -6,6 +6,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @request = Request.new
   end
 
   def new
@@ -23,7 +24,6 @@ class JobsController < ApplicationController
     end
   end
 
-
   def edit
     @job = Job.find(params[:id])
   end
@@ -38,7 +38,6 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.destroy
     redirect_to jobs_path # Need to change the redirect
-
   end
 
   private
