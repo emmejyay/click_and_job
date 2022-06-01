@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  
+
   def index
     @jobs = Jobs.all
   end
@@ -20,7 +20,6 @@ class JobsController < ApplicationController
       render :new
     end
   end
-  
 
   def edit
     @job = Job.find(params[:id])
@@ -37,8 +36,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.destroy
     redirect_to jobs_path # Need to change the redirect
-
-
+  end
 
   private
 
