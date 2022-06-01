@@ -1,0 +1,8 @@
+<%= simple_form_for(@job) do |f| %>
+    <%= f.input :job_title %>
+    <%= f.input :job_description %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :remuneration %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
