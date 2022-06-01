@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_many :jobs
   has_many :requests
   has_many :jobs_applied_for, through: :requests, class_name: "Job", source: "user"
+
+  validates :employer, presence: true
+  # validates :name, presence: true
+  # validates :location, presence: true
+  # validates :description, presence: true
 end
