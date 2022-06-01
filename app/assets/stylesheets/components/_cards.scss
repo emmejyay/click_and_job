@@ -1,0 +1,114 @@
+.card {
+  width: 100%;
+  margin: 10px 15px;
+  border-radius: 2%;
+}
+
+.card a{
+  color: white;
+  font-family: monospace;
+}
+
+.card-title {
+  font-size: large;
+  text-align: center;
+}
+.card-text {
+  text-align: justify;
+}
+.card-text-rating {
+text-align: right;
+font-weight: bold;
+}
+
+
+.index-title{
+  background-color: rgba($color: #242F9B, $alpha: 0.6);
+  color: white;
+  font-family: monospace;
+  text-align: center;
+}
+
+.card-body{
+  background-color:rgba($color: #9BA3EB, $alpha: 0.6);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+}
+.card-body p{
+ color: rgb(12, 0, 80);
+ font-family: monospace;
+ font-weight: bold;
+}
+
+.btn-ghost {
+  color: #F4F4F4 !important;
+  border: 1px solid #F4F4F4 !important;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+.card {
+  width: 100%;
+  margin: 10px 15px;
+  border-radius: 2%;
+}
+
+.card a{
+  color: white;
+  font-family: monospace;
+}
+
+.card-title {
+  font-size: large;
+  text-align: center;
+}
+.card-text {
+  text-align: justify;
+}
+.card-text-rating {
+text-align: right;
+font-weight: bold;
+}
+
+
+.index-title{
+  background-color: rgba($color: #242F9B, $alpha: 0.6);
+  color: white;
+  font-family: monospace;
+  text-align: center;
+}
+
+.card-body{
+  background-color:rgba($color: #9BA3EB, $alpha: 0.6);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+}
+.card-body p{
+ color: rgb(12, 0, 80);
+ font-family: monospace;
+ font-weight: bold;
+}
+
+.btn-ghost {
+  color: #F4F4F4 !important;
+  border: 1px solid #F4F4F4 !important;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
