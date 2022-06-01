@@ -10,13 +10,12 @@
   <%# </div> %>
 <%# </div> %>
 
-<%= link_to "Jobs available", jobs_path(@jobs) %>
 
 
   <div id="container">
 
     <!-- A div with card class for the card  -->
-    <div class="card">
+    <div class="card-show">
       <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Lago di Braies">
 
       <!-- A div with card__details class to hold the details in the card  -->
@@ -28,7 +27,9 @@
         <span class="tag">cooking</span>
 
         <!-- A div with name class for the name of the card -->
-        <div class="name"><%= @job.job_title%></div>
+        <div class="name">
+          <%= @job.job_title%>
+        </div>
 
         <h4><%= @job.job_title%></h4>
         <h4><%= @job.job_description%></h4>
@@ -36,9 +37,14 @@
         <p><strong>End:</strong><%= @job.end_date%></p>
         <h5><%= @job.remuneration%></h5>
 
-        <button>Apply</button>
+        <%= simple_form_for([@job, @request]) do |f| %>
+          <%= f.input :status, value: 'pending', input_html: {hidden: true} %>
+          <%= f.submit 'Apply' %>
+        <% end %>
+
       </div>
 
 
     </div>
   </div>
+<%= link_to "Jobs available", jobs_path(@jobs) %>
