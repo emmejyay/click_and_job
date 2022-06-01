@@ -13,9 +13,11 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <div class="sticky-top"><%= render 'shared/navbar' %></div>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
+
+    <div class="footer align-self-baseline border-top"><%= render 'shared/footer' %></div>
   </body>
 </html>

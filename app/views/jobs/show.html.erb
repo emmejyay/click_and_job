@@ -1,0 +1,13 @@
+
+<div class="card-product">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8SFcDfL0Y-mj5hso86b2Injnt7hq0LdjY3w&usqp=CAU" />
+  <div class="card-product-infos">
+   <h2><strong><%= @job.job_title %></strong></h2>
+    <h4><%= @job.job_description %></h4>
+    <p><strong>Start at:</strong><%= @job.start_date %></p>
+    <p><strong>End:</strong><%= @job.end_date %></p>
+    <h5><%= @job.remuneration %></h5>
+  </div>
+</div>
+
+<%= link_to "Jobs available", jobs_path(@jobs) %>
