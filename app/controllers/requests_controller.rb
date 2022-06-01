@@ -2,6 +2,7 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+    @job = Job.find(params[:job_id])
     @request.job = @job
   end
 
@@ -10,6 +11,7 @@ class RequestsController < ApplicationController
     @request.user = current_user
     @job = Job.find(params[:job_id])
     @request.job = @job
+    raise
     if @request.save
       redirect_to job_path(@job)
     else
