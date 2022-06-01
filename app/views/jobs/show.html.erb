@@ -1,7 +1,9 @@
 <div class="container">
-  <h2><strong><%= @job.title %></strong></h2>
-  <h4><%= @job.description %></h4>
-  <p><strong><%= @job.start_date %></strong></p>
-  <p><strong><%= @job.end_date %></strong></p>
-  <h3><%= @job.remuneration %></h3>
+  <div class="job-card">
+    <h2><strong><%= @job.job_title %></strong></h2>
+    <h4><%= @job.job_description %></h4>
+    <p><strong>Start at:</strong><%= @job.start_date %></p>
+    <p><strong>End:</strong><%= @job.end_date %></p>
+    <h3><%= @job.remuneration %></h3>
+  </div>
 </div>

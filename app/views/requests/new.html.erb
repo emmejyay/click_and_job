@@ -1,0 +1,11 @@
+<div class="container">
+  <br>
+  <h2>Would you be able to work?<h2>
+  <br>
+  <div>
+    <%= simple_form_for [@job, @request], url: job_new_requests_path, method: :get do |f| %>
+      <%= f.input :status %>
+      <%= f.submit "Request to work!", class: "btn btn-ghost" %>
+    <% end %>
+  </div>
+</div>
