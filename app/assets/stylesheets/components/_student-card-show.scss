@@ -1,6 +1,6 @@
-.student-card-show {
-  margin: 100px;
-  .img {
-    object-fit: cover;
-  }
+.student-card-show.img {
+  width: 100%;
+  border-radius: 12px;
+  height: 214px;
+  object-fit: cover;
 }
