@@ -1,8 +1,6 @@
-
-
-<div id="container">
+<div id="container d-flex">
   <% if current_user.employer %>
-    <%= render "employer-dashboard" %>
+    <% render "employer-dashboard" %>
   <% else %>
     <%= render "student-dashboard" %>
   <% end %>
