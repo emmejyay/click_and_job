@@ -4,8 +4,8 @@
   <div class="d-flex justify-content-between row">
     <% @jobs.each do |job| %>
         <div class="card" style="width: 18rem;">
-        <%= link_to image_tag(job.img_url), job_path(job), class: "card-img-top" %>
           <div class="card-body">
+            <%= link_to image_tag(job.img_url), job_path(job), class: "card-img-top" %>
             <p class="card-text"><%=job.job_title%></p>
             <p class="card-text"><%=job.job_description%></p>
             <p class="card-text"><%=job.start_date%></p>
