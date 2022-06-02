@@ -6,11 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# puts "Destroying Database"
-
-# if Rails.env.development?
-#   User.destroy_all
-# end
+puts "Destroying Database"
+if Rails.env.development?
+  Skill.destroy_all
+  Job.destroy_all
+  User.destroy_all
+end
 
 puts "Creating Database"
 
@@ -40,13 +41,13 @@ emp_maxime = User.create!(email: "max@emp.com", password: "Hello1!", employer: t
 emp_niko = User.create!(email: "nik@emp.com", password: "Hello1!", employer: true, name: "Niko", company: "Herbe a Chat Webcafe", location: "Brussels, Belgium", description: "Downtown Brussels internet cafe with tasty gourmet snacks.", avg_rating: rand(1..5))
 
 # jobs
-footballer = Job.create!(user_id: emp_jack, job_title: "Footballer", job_description: "Player needed for quarter-final match to prevent forfeit.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-dog_walker = Job.create!(user_id: emp_antoine, job_title: "Dog Walker", job_description: "Dog walker needed for downtown Brussels client.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-workshop_mgr = Job.create!(user_id: emp_valentin, job_title: "Workshop manager", job_description: "Client is looking for someone to help host a classic car maintenance workshop.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-line_cook = Job.create!(user_id: emp_maxime, job_title: "Line cook", job_description: "Line cook needed to work Friday evening dinner rush and clean up after.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-tech_support = Job.create!(user_id: emp_niko, job_title: "Tech support teaching assistant", job_description: "We are hosting a landing page workshop and need support for troubleshooting with attendees.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
+footballer = Job.create!(user: emp_jack, job_title: "Footballer", job_description: "Player needed for quarter-final match to prevent forfeit.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
+dog_walker = Job.create!(user: emp_antoine, job_title: "Dog Walker", job_description: "Dog walker needed for downtown Brussels client.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
+workshop_mgr = Job.create!(user: emp_valentin, job_title: "Workshop manager", job_description: "Client is looking for someone to help host a classic car maintenance workshop.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
+line_cook = Job.create!(user: emp_maxime, job_title: "Line cook", job_description: "Line cook needed to work Friday evening dinner rush and clean up after.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
+tech_support = Job.create!(user: emp_niko, job_title: "Tech support teaching assistant", job_description: "We are hosting a landing page workshop and need support for troubleshooting with attendees.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
 
-# skills
+# # skills
 football = Skill.create!(name: 'football')
 sports = Skill.create!(name: 'sports')
 cooking = Skill.create!(name: 'cooking')
@@ -61,28 +62,71 @@ driving = Skill.create!(name: 'driving')
 cars = Skill.create!(name: 'cars')
 
 # UserSkill.create(user: meghan, skill: cooking)
-# meghan.skills << web_development, design, cooking, cleaning, dog_walking, pet_sitting
-# maxime.skills << web_development, waitstaffing, cleaning, sports
-# ted.skills << web_development, design, football
-# jack.skills << web_development, design, languages, football
-# tony.skills << web_development, football
-# pierrick.skills << web_development, football, pet_sitting
-# archi.skills << web_development, sports, football
-# sebastien.skills << web_development, design
-# antoine.skills << web_development, design, sports, pet_sitting, dog_walking
-# val.skills << web_development, design, sports
-# valentin.skills << web_development, cars, driving, football, sports
-# mouton.skills << web_development, football, sports, cars, driving
-# augusto.skills << web_development, football, sports, cars, driving
+# meghan.skills << web_development
+# meghan.skills << design
+# meghan.skills << cooking
+# meghan.skills << cleaning
+# meghan.skills << dog_walking
+# meghan.skills << pet_sitting
+# maxime.skills << web_development
+# maxime.skills << waitstaffing
+# maxime.skills << cleaning
+# maxime.skills << sports
+# ted.skills << web_development
+# ted.skills << design
+# ted.skills << football
+# jack.skills << web_development
+# jack.skills << design
+# jack.skills << languages
+# jack.skills << football
+# tony.skills << web_development
+# tony.skills << football
+# pierrick.skills << web_development
+# pierrick.skills << football
+# pierrick.skills << pet_sitting
+# archi.skills << web_development
+# archi.skills << sports
+# archi.skills << football
+# sebastien.skills << web_development
+# sebastien.skills << design
+# antoine.skills << web_development
+# antoine.skills << design
+# antoine.skills << sports
+# antoine.skills << pet_sitting
+# antoine.skills << dog_walking
+# val.skills << web_development
+# val.skills << design
+# val.skills << sports
+# valentin.skills << web_development
+# valentin.skills << cars
+# valentin.skills << driving
+# valentin.skills << football
+# valentin.skills << sports
+# mouton.skills << web_development
+# mouton.skills << football
+# mouton.skills << sports
+# mouton.skills << cars
+# mouton.skills << driving
+# augusto.skills << web_development
+# augusto.skills << football
+# augusto.skills << sports
+# augusto.skills << cars
+# augusto.skills << driving
 # george.skills << web_development
-# niko.skills << web_development, cooking, cleaning, pet_sitting
+# niko.skills << web_development
+# niko.skills << cooking
+# niko.skills << cleaning
+# niko.skills << pet_sitting
+# pedro.skills << web_development
+# pedro.skills << languages
 
 # JobSkill.create(job: footballer, skill: football)
 # footballer.skills << football
 # dog_walker.skills << dog_walking
 # workshop_mgr.skills << cars
 # line_cook.skills << cooking, cleaning
-# tech_support.skills << web_development, design
+# tech_support.skills << web_development
+# tech_support.skills << design
 
 # requests(students)
 # footballer_st_req_1 = Request.create(user: tony, job: footballer, status: "pending")
