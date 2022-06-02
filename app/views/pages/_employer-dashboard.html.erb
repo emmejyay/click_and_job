@@ -18,9 +18,6 @@
         <h5><%= job.remuneration%>€</h5>
       </div>
     </div>
-    <a>
-      <%= link_to "Delete", job_path(job), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
-    </a>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= job.id %>">
       Launch demo modal
     </button>
@@ -35,8 +32,8 @@
           </div>
           <div class="modal-body">
             <% job.requests.each do |request| %>
-              <p><%= request.user.email %></p>
-
+              <p><%= request.user.name %></p>
+              <p><%= request.job.job_title %></p>
             <% end %>
           </div>
           <div class="modal-footer">
