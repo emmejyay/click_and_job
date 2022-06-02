@@ -8,15 +8,16 @@
 
 puts "Destroying Database"
 if Rails.env.development?
+  Review.destroy_all
   UserSkill.destroy_all
   JobSkill.destroy_all
-  Request.destroy_all
   Skill.destroy_all
+  Request.destroy_all
   Job.destroy_all
   User.destroy_all
 end
 
-puts "Creating Database"
+puts "Creating students"
 
 # users(students)
 meghan = User.create!(email: "meg@meg.com", password: "Hello1!", employer: false, name: "Meghan", nickname: "emmejyay", location: "Mechelen, Belgium", description: "Likes math and design, dog owner of 1. Passionate about service with a smile.", avg_rating: rand(1..5))
@@ -36,6 +37,8 @@ george = User.create!(email: "geo@geo.com", password: "Hello1!", employer: false
 niko = User.create!(email: "nik@nik.com", password: "Hello1!", employer: false, name: "Niko", nickname: "disco-chef", location: "Brussels, Belgium", description: "Cats, coding, cooking.  In that order.", avg_rating: rand(1..5))
 pedro = User.create!(email: "ped@ped.com", password: "Hello1!", employer: false, name: "Pedro", nickname: "Pedro-Pan", location: "Brussels, Belgium", description: "Always late, but I have a great attitude! Polyglot.", avg_rating: rand(1..5))
 
+puts "Creating employers"
+
 # users(employers)
 emp_jack = User.create!(email: "jac@emp.com", password: "Hello1!", employer: true, name: "Jack", company: "Direct League", location: "Brussels, Belgium", description: "Organizer for mini football matches.", avg_rating: rand(1..5))
 emp_antoine = User.create!(email: "ant@emp.com", password: "Hello1!", employer: true, name: "Antoine", company: "Petzr", location: "Brussels, Belgium", description: "Organizer for pet care.", avg_rating: rand(1..5))
@@ -43,12 +46,16 @@ emp_valentin = User.create!(email: "vale@emp.com", password: "Hello1!", employer
 emp_maxime = User.create!(email: "max@emp.com", password: "Hello1!", employer: true, name: "Maxime", company: "Le Canotier", location: "Neupre, Belgium", description: "Wonderful restaurant just outside of Liege.", avg_rating: rand(1..5))
 emp_niko = User.create!(email: "nik@emp.com", password: "Hello1!", employer: true, name: "Niko", company: "Herbe a Chat Webcafe", location: "Brussels, Belgium", description: "Downtown Brussels internet cafe with tasty gourmet snacks.", avg_rating: rand(1..5))
 
+puts "Creating jobs"
+
 # jobs
-footballer = Job.create!(user: emp_jack, job_title: "Footballer", job_description: "Player needed for quarter-final match to prevent forfeit.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-dog_walker = Job.create!(user: emp_antoine, job_title: "Dog Walker", job_description: "Dog walker needed for downtown Brussels client.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-workshop_mgr = Job.create!(user: emp_valentin, job_title: "Workshop Manager", job_description: "Client is looking for someone to help host a classic car maintenance workshop.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-line_cook = Job.create!(user: emp_maxime, job_title: "Line Cook", job_description: "Line cook needed to work Friday evening dinner rush and clean up after.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-tech_support = Job.create!(user: emp_niko, job_title: "Tech Support Teaching Assistant", job_description: "We are hosting a landing page workshop and need support for troubleshooting with attendees.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
+footballer = Job.create!(user: emp_jack, job_title: "Footballer", job_description: "Player needed for quarter-final match to prevent forfeit.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45), img_url: "https://images.unsplash.com/photo-1624280157150-4d1ed8632989?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNvY2NlciUyMHBsYXllcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+dog_walker = Job.create!(user: emp_antoine, job_title: "Dog Walker", job_description: "Dog walker needed for downtown Brussels client.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45), img_url: "https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwd2Fsa2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+workshop_mgr = Job.create!(user: emp_valentin, job_title: "Workshop Manager", job_description: "Client is looking for someone to help host a classic car maintenance workshop.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45), img_url: "https://images.unsplash.com/photo-1628577478162-d4d00467c627?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDl8fGNhciUyMHdvcmtzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+line_cook = Job.create!(user: emp_maxime, job_title: "Line Cook", job_description: "Line cook needed to work Friday evening dinner rush and clean up after.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45), img_url: "https://images.unsplash.com/photo-1590577976322-3d2d6e2130d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+tech_support = Job.create!(user: emp_niko, job_title: "Tech Support Teaching Assistant", job_description: "We are hosting a landing page workshop and need support for troubleshooting with attendees.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45), img_url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dGVjaCUyMHdvcmtzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+
+puts "Creating skills"
 
 # # skills
 football = Skill.create!(name: 'football')
@@ -63,6 +70,8 @@ design = Skill.create!(name: 'design')
 languages = Skill.create!(name: 'languages')
 driving = Skill.create!(name: 'driving')
 cars = Skill.create!(name: 'cars')
+
+puts "Creating user skills"
 
 # UserSkill.create(user: meghan, skill: cooking)
 meghan.skills << web_development
@@ -123,6 +132,8 @@ niko.skills << pet_sitting
 pedro.skills << web_development
 pedro.skills << languages
 
+puts "Creating job skills"
+
 # JobSkill.create(job: footballer, skill: football)
 footballer.skills << football
 dog_walker.skills << dog_walking
@@ -131,6 +142,8 @@ line_cook.skills << cooking
 line_cook.skills << cleaning
 tech_support.skills << web_development
 tech_support.skills << design
+
+# puts "Creating requests"
 
 # requests(students)
 # footballer_st_req_1 = Request.create(user: tony, job: footballer, status: "pending")
@@ -153,11 +166,31 @@ tech_support.skills << design
 # line_cook_emp_req_1 =
 # line_cook_emp_req_2 =
 
-# reviews
-# review_ = Request.create(writer_id: george, recipient_id: emp_niko, job: tech_support, content: "Great space to host a workshop, friendly staff.")
-# review_dog_walker = Request.create(writer_id: george, recipient_id: emp_niko, job: tech_support, content: "Great space to host a workshop, friendly staff.")
-# review_ = Request.create(writer_id: george, recipient_id: emp_niko, job: tech_support, content: "Great space to host a workshop, friendly staff.")
-# review_tech_support = Request.create(writer_id: george, recipient_id: emp_niko, job: tech_support, content: "Great space to host a workshop, friendly staff.")
-# review_tech_support = Request.create(writer_id: george, recipient_id: emp_niko, job: tech_support, content: "Great space to host a workshop, friendly staff.")
+puts "Creating reviews"
+
+# reviews of students
+review_meghan = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_maxime = Review.create!(writer: emp_niko, recipient: maxime, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
+# review_ted = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+# review_jack = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+# review_tony = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_pierrick = Review.create!(writer: emp_jack, recipient: pierrick, job: footballer, content: "Aggressive player, even gave his own teacher a black eye. Beware.")
+# review_archi = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_sebastien = Review.create!(writer: emp_niko, recipient: sebastien, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
+# review_antoine = Review.create!(writer: emp_niko, recipient: maxime, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
+# review_val = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+# review_valentin = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_mouton = Review.create!(writer: emp_valentin, recipient: mouton, job: workshop_mgr, content: "Very nice guy and knows his cars!")
+# review_augusto = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+# review_george = Review.create!(writer: emp_niko, recipient: maxime, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
+review_niko = Review.create!(writer: emp_maxime, recipient: niko, job: line_cook, content: "A beast in the kitchen.  Will get you through the dinner rush and whip your staff into shape!")
+review_pedro = Review.create!(writer: emp_niko, recipient: pedro, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
+
+# reviews of employers
+review_emp_jack = Review.create!(writer: pierrick, recipient: emp_jack, job: footballer, content: "Cool app and great management!  Would happily sub as a player again.")
+review_emp_antoine = Review.create!(writer: meghan, recipient: emp_antoine, job: dog_walker, content: "Cool app and great management!  Very easy to find all the details you need for a successful walk.")
+review_emp_valentin = Review.create!(writer: mouton, recipient: emp_valentin, job: workshop_mgr, content: "Awesome location and great resource for classic car owners.  Also provided lunch!")
+review_emp_maxime = Review.create!(writer: niko, recipient: emp_maxime, job: line_cook, content: "Fancy restaurant with all new equipment.  Very clean. Looking to apply for a full time position.")
+review_emp_niko = Review.create!(writer: pedro, recipient: emp_niko, job: tech_support, content: "Nice guy who really knows his code. Also a great cafe. The cats are friendly!")
 
 puts "Database Created!"
