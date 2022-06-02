@@ -4,9 +4,7 @@
   <div class="d-flex justify-content-between row">
     <% @jobs.each do |job| %>
         <div class="card" style="width: 18rem;">
-        <%= link_to job_path(job) do %>
-          <img class="card-img-top" src="https://www.spacefungame.com/wp-content/uploads/2022/02/Job.jpg" alt="Card image cap">
-          <% end %>
+        <%= link_to image_tag(job.img_url), job_path(job), class: "card-img-top" %>
           <div class="card-body">
             <p class="card-text"><%=job.job_title%></p>
             <p class="card-text"><%=job.job_description%></p>
