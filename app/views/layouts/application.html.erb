@@ -13,11 +13,15 @@
   </head>
 
   <body>
-    <div class="sticky-top"><%= render 'shared/navbar' %></div>
-    <%= render 'shared/flashes' %>
+    <div class="content-layout">
+      <div class="sticky-top"><%= render 'shared/navbar' %></div>
 
-    <%= yield %>
+      <%= render 'shared/flashes' %>
 
-    <div class="footer align-self-baseline border-top"><%= render 'shared/footer' %></div>
+      <%= yield %>
+
+      <div class="footer align-self-baseline border-top"><%= render 'shared/footer' %></div>
+
+    </div>
   </body>
 </html>
