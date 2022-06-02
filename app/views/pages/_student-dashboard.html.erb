@@ -1,9 +1,9 @@
-<% @jobs.each do |job| %>
+<% current_user.requests.each do |request| %>
  <div class="student-card-show">
     <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Lago di Braies">
 
     <!-- A div with card__details class to hold the details in the card  -->
-      <div class="card__details">
+      <div class="student-card__details">
 
         <!-- Span with tag class for the tag -->
         <%# interrate over skills? @job.skills  %>
@@ -12,12 +12,15 @@
         <span class="tag">cooking</span>
         <!-- A div with name class for the name of the card -->
         <div class="name">
-          <h4><%= job.job_title%></h4>
-          <h4><%= job.job_description%></h4>
-            <p><strong>Start at:</strong><%= job.start_date%></p>
-            <p><strong>End:</strong><%= job.end_date%></p>
-          <h5><%= job.remuneration%>€</h5>
+          <h4><%= request.job.job_title%></h4>
+          <h4><%= request.job.job_description%></h4>
+            <p><strong>Start at:</strong><%= request.job.start_date%></p>
+            <p><strong>End:</strong><%= request.job.end_date%></p>
+          <h5><%= request.job.remuneration%>€</h5>
         </div>
       </div>
+      <a>
+        <%= link_to "Delete", request_path(request), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
+      </a>
  </div>
 <% end %>
