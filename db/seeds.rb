@@ -8,6 +8,7 @@
 
 puts "Destroying Database"
 if Rails.env.development?
+  Request.destroy_all
   Skill.destroy_all
   Job.destroy_all
   User.destroy_all
