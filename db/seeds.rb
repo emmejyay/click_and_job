@@ -8,6 +8,7 @@
 
 puts "Destroying Database"
 if Rails.env.development?
+  Request.destroy_all
   Skill.destroy_all
   Job.destroy_all
   User.destroy_all
@@ -43,9 +44,9 @@ emp_niko = User.create!(email: "nik@emp.com", password: "Hello1!", employer: tru
 # jobs
 footballer = Job.create!(user: emp_jack, job_title: "Footballer", job_description: "Player needed for quarter-final match to prevent forfeit.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
 dog_walker = Job.create!(user: emp_antoine, job_title: "Dog Walker", job_description: "Dog walker needed for downtown Brussels client.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-workshop_mgr = Job.create!(user: emp_valentin, job_title: "Workshop manager", job_description: "Client is looking for someone to help host a classic car maintenance workshop.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-line_cook = Job.create!(user: emp_maxime, job_title: "Line cook", job_description: "Line cook needed to work Friday evening dinner rush and clean up after.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
-tech_support = Job.create!(user: emp_niko, job_title: "Tech support teaching assistant", job_description: "We are hosting a landing page workshop and need support for troubleshooting with attendees.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
+workshop_mgr = Job.create!(user: emp_valentin, job_title: "Workshop Manager", job_description: "Client is looking for someone to help host a classic car maintenance workshop.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
+line_cook = Job.create!(user: emp_maxime, job_title: "Line Cook", job_description: "Line cook needed to work Friday evening dinner rush and clean up after.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
+tech_support = Job.create!(user: emp_niko, job_title: "Tech Support Teaching Assistant", job_description: "We are hosting a landing page workshop and need support for troubleshooting with attendees.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45))
 
 # # skills
 football = Skill.create!(name: 'football')
