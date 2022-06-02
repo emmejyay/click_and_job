@@ -12,6 +12,7 @@
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-ghost" %></li>
           <%# <li><%= link_to "My profile", current_user_path, class:"btn btn-ghost"</li>  %>
           <li><%= link_to "Jobs Available", jobs_path, class:"btn btn-ghost" %></li>
+          <li><%= link_to "Dashboard", dashboard_path, class:"btn btn-ghost" %></li>
         <%else %>
           <li><%= link_to "Log in", new_user_session_path, class: "btn btn-ghost" %></li>
         <% end %>

@@ -1,6 +1,9 @@
-<% if current_user.employer %>
-<%# EMPLOYER DASHBOARD %>
-<%  %>
-<%# STUDENT DASHBOARD %>
 
-<% end %>
+
+<div id="container">
+  <% if current_user.employer %>
+    <%= render "employer-dashboard" %>
+  <% else %>
+    <%= render "student-dashboard" %>
+  <% end %>
+</div>
