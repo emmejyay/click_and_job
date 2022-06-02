@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
     @request.job = @job
 
     if @request.save
-      redirect_to job_path(@job)
+      redirect_to dashboard_path
     else
       render :new
     end
