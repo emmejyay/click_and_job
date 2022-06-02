@@ -8,6 +8,8 @@
 
 puts "Destroying Database"
 if Rails.env.development?
+  UserSkill.destroy_all
+  JobSkill.destroy_all
   Request.destroy_all
   Skill.destroy_all
   Job.destroy_all
@@ -63,71 +65,72 @@ driving = Skill.create!(name: 'driving')
 cars = Skill.create!(name: 'cars')
 
 # UserSkill.create(user: meghan, skill: cooking)
-# meghan.skills << web_development
-# meghan.skills << design
-# meghan.skills << cooking
-# meghan.skills << cleaning
-# meghan.skills << dog_walking
-# meghan.skills << pet_sitting
-# maxime.skills << web_development
-# maxime.skills << waitstaffing
-# maxime.skills << cleaning
-# maxime.skills << sports
-# ted.skills << web_development
-# ted.skills << design
-# ted.skills << football
-# jack.skills << web_development
-# jack.skills << design
-# jack.skills << languages
-# jack.skills << football
-# tony.skills << web_development
-# tony.skills << football
-# pierrick.skills << web_development
-# pierrick.skills << football
-# pierrick.skills << pet_sitting
-# archi.skills << web_development
-# archi.skills << sports
-# archi.skills << football
-# sebastien.skills << web_development
-# sebastien.skills << design
-# antoine.skills << web_development
-# antoine.skills << design
-# antoine.skills << sports
-# antoine.skills << pet_sitting
-# antoine.skills << dog_walking
-# val.skills << web_development
-# val.skills << design
-# val.skills << sports
-# valentin.skills << web_development
-# valentin.skills << cars
-# valentin.skills << driving
-# valentin.skills << football
-# valentin.skills << sports
-# mouton.skills << web_development
-# mouton.skills << football
-# mouton.skills << sports
-# mouton.skills << cars
-# mouton.skills << driving
-# augusto.skills << web_development
-# augusto.skills << football
-# augusto.skills << sports
-# augusto.skills << cars
-# augusto.skills << driving
-# george.skills << web_development
-# niko.skills << web_development
-# niko.skills << cooking
-# niko.skills << cleaning
-# niko.skills << pet_sitting
-# pedro.skills << web_development
-# pedro.skills << languages
+meghan.skills << web_development
+meghan.skills << design
+meghan.skills << cooking
+meghan.skills << cleaning
+meghan.skills << dog_walking
+meghan.skills << pet_sitting
+maxime.skills << web_development
+maxime.skills << waitstaffing
+maxime.skills << cleaning
+maxime.skills << sports
+ted.skills << web_development
+ted.skills << design
+ted.skills << football
+jack.skills << web_development
+jack.skills << design
+jack.skills << languages
+jack.skills << football
+tony.skills << web_development
+tony.skills << football
+pierrick.skills << web_development
+pierrick.skills << football
+pierrick.skills << pet_sitting
+archi.skills << web_development
+archi.skills << sports
+archi.skills << football
+sebastien.skills << web_development
+sebastien.skills << design
+antoine.skills << web_development
+antoine.skills << design
+antoine.skills << sports
+antoine.skills << pet_sitting
+antoine.skills << dog_walking
+val.skills << web_development
+val.skills << design
+val.skills << sports
+valentin.skills << web_development
+valentin.skills << cars
+valentin.skills << driving
+valentin.skills << football
+valentin.skills << sports
+mouton.skills << web_development
+mouton.skills << football
+mouton.skills << sports
+mouton.skills << cars
+mouton.skills << driving
+augusto.skills << web_development
+augusto.skills << football
+augusto.skills << sports
+augusto.skills << cars
+augusto.skills << driving
+george.skills << web_development
+niko.skills << web_development
+niko.skills << cooking
+niko.skills << cleaning
+niko.skills << pet_sitting
+pedro.skills << web_development
+pedro.skills << languages
 
 # JobSkill.create(job: footballer, skill: football)
-# footballer.skills << football
-# dog_walker.skills << dog_walking
-# workshop_mgr.skills << cars
-# line_cook.skills << cooking, cleaning
-# tech_support.skills << web_development
-# tech_support.skills << design
+footballer.skills << football
+dog_walker.skills << dog_walking
+workshop_mgr.skills << cars
+line_cook.skills << cooking
+line_cook.skills << cleaning
+tech_support.skills << web_development
+tech_support.skills << design
 
 # requests(students)
 # footballer_st_req_1 = Request.create(user: tony, job: footballer, status: "pending")

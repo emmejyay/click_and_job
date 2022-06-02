@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
   has_many :jobs, dependent: :destroy
   has_many :requests
-  has_many :skills
+  has_many :user_skills
+  has_many :skills, through: :user_skills
   has_many :jobs_applied_for, through: :requests, class_name: "Job", source: "user"
 
   validates :employer, inclusion: { in: [false, true] }
