@@ -7,4 +7,8 @@ class PagesController < ApplicationController
   def dashboard
     @jobs = Job.all
   end
+
+  def jobs_created_by_user
+    @jobs = Job.where(user_id == current_user.id)
+  end
 end
