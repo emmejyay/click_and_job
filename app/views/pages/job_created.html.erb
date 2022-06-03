@@ -31,13 +31,28 @@
 
             </div>
             <div class="modal-footer">
-            # instead of button, create links
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Accepted</button>
+              <%= link_to "Accepted", job_request_path(@job, request), method: :patch do %>
+                <%= :status, value: 'Accept', input_html: {hidden: true} %>
+              <% end %>
+              #Changer status de la request en "accepté"
+              #Delete les autres requests liées au job
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Declined</button>
+              #Delete la request sélectionnée
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
     <% end %>
+    <%= link_to 'Back', '/dashboard', class: 'btn btn-primary' %>
 </div>
+
+
+
+        <%= simple_form_for([@job, @request]) do |f| %>
+          <%= f.input :status, value: 'pending', input_html: {hidden: true} %>
+           <% if !current_user.employer %>
+              <%= f.submit 'Apply', class: 'btn btn-primary'%>
+            <% end %>
+        <% end %>

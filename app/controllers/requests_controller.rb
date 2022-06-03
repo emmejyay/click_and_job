@@ -29,6 +29,14 @@ class RequestsController < ApplicationController
     redirect_to jobs_path
   end
 
+  def accept_request
+    @request = Request.find(params[:request_id])
+  end
+
+  def decline_request
+
+  end
+
   def destroy
     @request = Request.find(params[:id])
     @request.destroy

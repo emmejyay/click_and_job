@@ -35,13 +35,84 @@
         <p><strong>End:</strong><%= @job.end_date%></p>
         <h5><%= @job.remuneration%></h5>
 
-        <%= simple_form_for([@job, @request]) do |f| %>
-          <%= f.input :status, value: 'pending', input_html: {hidden: true} %>
-           <% if !current_user.employer %>
-              <%= f.submit 'Apply', class: 'btn btn-primary'%>
-            <% end %>
-        <% end %>
+        <% if !current_user.employer %>
+          <%= simple_form_for([@job, @request]) do |f| %>
+            <%= f.input :status, value: 'pending', input_html: {hidden: true} %>
+            <%= f.submit 'Apply', class: 'btn btn-primary'%>
+          <% end %>
+        <% else %>
+          <% if @job.requests.find_by(status: "accepted") %>
+            <% request = @job.requests.find_by(status: "accepted") %>
+            <%# accepted request %>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @job.id %>">
+              <p><%= request.user.nickname%> <%=request.user.name%> <%= request.user.location %> </p>
+            </button>
 
+            <div class="modal fade" id="exampleModal<%= @job.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p><%= request.user.name %></p>
+                    <p><%= request.job.job_title %></p>
+                    <p><%= request.job.job_description %></p>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Accepted</button>
+                    <%= simple_form_for(request) do |f| %>
+                      <%= f.input :status, label: false, input_html: {hidden: true, value: 'accepted'} %>
+                      <%= f.submit "Accept" %>
+                    <% end %>
+
+                    <%= simple_form_for(request) do |f| %>
+                      <%= f.input :status, label: false, input_html: {hidden: true, value: 'declined'} %>
+                      <%= f.submit "Decline" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% else %>
+            <% @job.requests.where(status: "pending").each do |request| %>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @job.id %>">
+                <p><%= request.user.nickname%> <%=request.user.name%> <%= request.user.location %> </p>
+              </button>
+
+              <div class="modal fade" id="exampleModal<%= @job.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p><%= request.user.name %></p>
+                      <p><%= request.job.job_title %></p>
+                      <p><%= request.job.job_description %></p>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Accepted</button>
+                      <%= simple_form_for(request) do |f| %>
+                        <%= f.input :status, input_html: {hidden: true, value: 'accepted'} %>
+                        <%= f.submit "Accept" %>
+                      <% end %>
+
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Declined</button>
+                      #Delete la request sélectionnée
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          <%= link_to 'Back', '/dashboard', class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   </div>
