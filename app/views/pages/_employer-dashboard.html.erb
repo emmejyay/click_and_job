@@ -1,16 +1,26 @@
- <% @jobs.each do |job| %>
-  <div class="student-card-show">
-    <%= link_to image_tag('https://images.unsplash.com/photo-1536323760109-ca8c07450053'), job_created_path(job) %>
-    <div class="card__details">
-      <span class="tag">skills</span>
-      <span class="tag">cooking</span>
-        <div class="name">
-          <h4><%= job.job_title%></h4>
-          <h4><%= job.job_description%></h4>
-            <p><strong>Start at:</strong><%= job.start_date%></p> We have to adapt the format
-            <p><strong>End:</strong><%= job.end_date%></p> We have to adapt the format
-          <h5><%= job.remuneration%>€</h5>
-        </div>
-    </div>
+
+  <div class="container">
+    <% @jobs.each do |job|  %>
+      <div class="student-card-show">
+          <%= link_to image_tag(job.img_url), job_created_path(job), class: "card-img-top" %>
+
+          <!-- A div with card__details class to hold the details in the card  -->
+            <div class="student-card__details">
+
+              <!-- Span with tag class for the tag -->
+              <%# interrate over skills? @job.skills  %>
+              <span class="tag">skills</span>
+
+              <span class="tag">cooking</span>
+              <!-- A div with name class for the name of the card -->
+              <div class="name">
+                <h4><%= job.job_title%></h4>
+                <h4><%= job.job_description%></h4>
+                  <p><strong>Start at:</strong><%= job.start_date%></p>
+                  <p><strong>End:</strong><%= job.end_date%></p>
+                <h5><%= job.remuneration%>€</h5>
+              </div>
+            </div>
+      </div>
+    <% end %>
   </div>
-<% end %>

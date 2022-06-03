@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: "pages#dashboard", as: :dashboard
 
   resources :jobs do
-    resources :requests, only: %i[new create edit update]
+    resources :requests, only: %i[new create]
   end
-  resources :requests, only: :destroy
+  resources :requests, only: [:destroy, :edit, :update]
 end
