@@ -16,12 +16,9 @@
 
     <!-- A div with card class for the card  -->
     <div class="card-show">
-      <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Lago di Braies">
-
-      <!-- A div with card__details class to hold the details in the card  -->
+      <%= link_to image_tag(@job.img_url), job_path(@job), class: "card-img-top" %>
       <div class="card__details">
 
-        <!-- Span with tag class for the tag -->
         <%# interrate over skills? @job.skills  %>
         <span class="tag">skills</span>
 
