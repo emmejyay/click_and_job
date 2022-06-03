@@ -27,6 +27,7 @@
         <!-- A div with name class for the name of the card -->
         <div class="name">
           <%= @job.job_title%>
+          <h4><%= @job.user.location%></h4>
         </div>
         <br>
         <h4><%= @job.job_description%></h4>
@@ -36,7 +37,7 @@
 
         <% if !current_user.employer %>
           <%= simple_form_for([@job, @request]) do |f| %>
-          <%= f.input :status, value: 'pending', input_html: {hidden: true} %>
+          <%= f.input :status, value: 'pending', input_html: {hidden: true}, label: false %>
           <%= f.submit 'Apply', class: 'btn btn-primary'%>
           <% end %>
         <% end %>

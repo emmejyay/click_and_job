@@ -68,7 +68,7 @@ web_development = Skill.create!(name: 'web development')
 design = Skill.create!(name: 'design')
 languages = Skill.create!(name: 'languages')
 driving = Skill.create!(name: 'driving')
-cars = Skill.create!(name: 'cars')
+car_maintenance = Skill.create!(name: 'car maintenance')
 
 puts "Creating user skills"
 
@@ -109,19 +109,19 @@ val.skills << web_development
 val.skills << design
 val.skills << sports
 valentin.skills << web_development
-valentin.skills << cars
+valentin.skills << car_maintenance
 valentin.skills << driving
 valentin.skills << football
 valentin.skills << sports
 mouton.skills << web_development
 mouton.skills << football
 mouton.skills << sports
-mouton.skills << cars
+mouton.skills << car_maintenance
 mouton.skills << driving
 augusto.skills << web_development
 augusto.skills << football
 augusto.skills << sports
-augusto.skills << cars
+augusto.skills << car_maintenance
 augusto.skills << driving
 george.skills << web_development
 niko.skills << web_development
@@ -136,7 +136,7 @@ puts "Creating job skills"
 # JobSkill.create(job: footballer, skill: football)
 footballer.skills << football
 dog_walker.skills << dog_walking
-workshop_mgr.skills << cars
+workshop_mgr.skills << car_maintenance
 line_cook.skills << cooking
 line_cook.skills << cleaning
 tech_support.skills << web_development
@@ -179,7 +179,7 @@ review_sebastien = Review.create!(writer: emp_niko, recipient: sebastien, job: t
 # review_antoine = Review.create!(writer: emp_niko, recipient: maxime, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
 # review_val = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
 # review_valentin = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
-review_mouton = Review.create!(writer: emp_valentin, recipient: mouton, job: workshop_mgr, content: "Very nice guy and knows his cars!")
+review_mouton = Review.create!(writer: emp_valentin, recipient: mouton, job: workshop_mgr, content: "Very nice guy and knows his car_maintenance!")
 # review_augusto = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
 # review_george = Review.create!(writer: emp_niko, recipient: maxime, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
 review_niko = Review.create!(writer: emp_maxime, recipient: niko, job: line_cook, content: "A beast in the kitchen.  Will get you through the dinner rush and whip your staff into shape!")

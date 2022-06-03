@@ -2,6 +2,7 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+    @request = Request.new
   end
 
   def show
