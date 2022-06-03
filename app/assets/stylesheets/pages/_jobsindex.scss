@@ -6,10 +6,12 @@
 }
 
 .card-img-top{
-  width: 100%;
-  border-radius: 12px;
-  height: 214px;
-  object-fit: cover;
+  img {
+    border-radius: 12px;
+    height: 214px;
+    width: 100%;
+    object-fit: cover;
+  }
 
 }
 
