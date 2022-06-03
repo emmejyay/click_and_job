@@ -9,48 +9,51 @@
 
               <!-- Span with tag class for the tag -->
               <%# interrate over skills? @job.skills  %>
-              <span class="tag">skills</span>
 
-              <span class="tag">cooking</span>
               <!-- A div with name class for the name of the card -->
               <div class="name">
-                <h4><%= request.job.job_title%></h4>
-                <h4><%= request.job.job_description%></h4>
-                  <p><strong>Start at:</strong><%= request.job.start_date%></p>
-                  <p><strong>End:</strong><%= request.job.end_date%></p>
-                <h5><%= request.job.remuneration%>€</h5>
+                <%= request.job.job_title%>
+                <h4><strong><%= request.job.user.location%></strong></h4>
               </div>
+
+                <h4><%= request.job.job_description%></h4>
+                  <p><strong>Start at: </strong><%= request.job.start_date%></p>
+                  <p><strong>End: </strong><%= request.job.end_date%></p>
+                <h5><%= request.job.remuneration%>€</h5>
             </div>
+
+          <div>
             <a>
               <%= link_to "Cancel Application", request_path(request), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
             </a>
-      </div>
+          </div>
+        </div>
     <% end %>
   </div>
   <div class="place-holder">
     <div>
       <div class="request-header">
-        <h1>Job requests</h1>
+        <h3>Direct requests:</h3>
       </div>
         <div class="card-product">
           <img src="https://s3-alpha-sig.figma.com/img/6811/cb81/6b684198696b0af8ea0326abf59e1035?Expires=1655078400&Signature=Yioao3aEIrKPn3ZAMRMIlEK5vfu8EyDfkk4Q240nStdwk4z1b32u-ym-Sq12AwI8ktzK73D8vpy~FtdypbHbNc2rbMO9-6GPodDlo4l4tYy21CM5AujRKnohpwknbnPnpqM6lnPbSbgPNFU9DwLeHiqI~8elqbsJByOKYuFT4QpfqI~ajB--KX8vSbvC23c~hjReGnZvjXTuQd3AtJQR2nQC4BuiHQCwKb0emswvRmuh5X8QO8F-MBEf8lR9R8SUDPQKdbQaf-ruUkFtJ8iEtMwexdjgKe2ZPIytKpy82G9iSJZjuADrfP0u-LD04XtTctsT5lCuLn1Wow9TFmsTjQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" class="avatar" />
           <div class="card-product-infos">
-            <h2>Product name</h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+            <h2>Le Wagon</h2>
+            <p>Student needed for an event on monday - Remuneration: 50€</p>
           </div>
         </div>
         <div class="card-product">
           <img src="https://s3-alpha-sig.figma.com/img/6fe8/e7bc/d407299307bcc35491caeb52381befcc?Expires=1655078400&Signature=D~duqpI-3DfDtebChAhPX~G8wGHumG3Glcd2At0gPaeqhrSDo64GSYHSu0nTkuaCBZd3MzFqko-sVeY-KV8vF~TuPItYIwQexNbef~c4blkS3eU2K-Ue6sdKm1F4lyWkgaVppuii7lnVWm72Rd7kDH81G4qet5CyEL5xLFv3UoENyZ36lPrrLZmeBIQ4NcLqLOv-2yhH75uN5ZBimKnQv4oytCApZvNWOM1VMZS-sLS0rYWNv6kPjLG-DVaKkbtlXrVvJSyFNAuK~SmDalg4O~ElitPjkBWiCy6t~E2RiB2r4-jSzsiWD1HyXgUCdwQ935P-lhyvZ7jalbUYxV2NGA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" class="avatar" />
           <div class="card-product-infos">
-            <h2>Product name</h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+            <h2>Burger King</h2>
+            <p>Extra staff needed for saturday 12 to 18pm - Remuneration: 68€</p>
           </div>
         </div>
         <div class="card-product">
           <img src="https://s3-alpha-sig.figma.com/img/303b/d80f/150ddaf764ab2886c10929ce8e6f72f1?Expires=1655078400&Signature=SbPgrcuu0f~G~QB55QxxLApwx~-HTr5fWin1nK~soIWJ65nt6csTHvL49Hm487l~L74Vv78W-JDDzwaQk7GFP6Qu~pe9Xmz59jQQFbiFxfWQkjj2ralPDIpVPXD6y59asjwAOv6ALt-6O0Y4NdGG0A3qYA5gaNr0EPuNkwmJfyRpiHq4Enktzu8l48ApqYte8vfiVirdawi3l2dF~~DdpbcuOCcWJVPheHM3icn1xgQNn9fLSpchLLicQldQuWWtdstQWnP-ZJTmLdveOqd2z5WSOfZ-iZjW-BUhUJQ7j4pGsxACvM6Wvx9SQeTBzf-vhGj2dW7G-vBJ6fVUmU0h0A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" class="avatar" />
           <div class="card-product-infos">
-            <h2>Product name</h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+            <h2>Mc Donalds</h2>
+            <p>Cashier needed for friday 18 to 23pm - Remuneration: 70€</p>
           </div>
         </div>
     </div>
