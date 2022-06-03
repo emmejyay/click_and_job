@@ -1,0 +1,17 @@
+<div class="dashboard-container">
+  <%@jobs.each do |job| %>
+  <div class="student-card-show">
+    <%= link_to image_tag('https://images.unsplash.com/photo-1536323760109-ca8c07450053'), '/dashboard' %>
+    <div class="card__details">
+      <span class="tag">skills</span>
+      <span class="tag">cooking</span>
+        <div class="name">
+          <h4><%= job.job_title%></h4>
+          <h4><%= job.job_description%></h4>
+            <p><strong>Start at:</strong><%= job.start_date%></p> We have to adapt the format
+            <p><strong>End:</strong><%= job.end_date%></p> We have to adapt the format
+          <h5><%= job.remuneration%>€</h5>
+        </div>
+   </div>
+   <% end %>
+</div>

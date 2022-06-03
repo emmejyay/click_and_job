@@ -1,29 +1,22 @@
-<% current_user.jobs.each do |job| %>
  <div class="student-card-show">
-    <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Lago di Braies">
-
-    <!-- A div with card__details class to hold the details in the card  -->
-    <div class="card__details">
-      <!-- Span with tag class for the tag -->
-      <%# interrate over skills? @job.skills  %>
-      <span class="tag">skills</span>
-
-      <span class="tag">cooking</span>
-      <!-- A div with name class for the name of the card -->
+  <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Lago di Braies">
+  <div class="card__details">
+    <span class="tag">skills</span>
+    <span class="tag">cooking</span>
       <div class="name">
-        <h4><%= job.job_title%></h4>
-        <h4><%= job.job_description%></h4>
-          <p><strong>Start at:</strong><%= job.start_date%></p>
-          <p><strong>End:</strong><%= job.end_date%></p>
-        <h5><%= job.remuneration%>€</h5>
+        <h4><%= @job.job_title%></h4>
+        <h4><%= @job.job_description%></h4>
+          <p><strong>Start at:</strong><%= @job.start_date%></p> We have to adapt the format
+          <p><strong>End:</strong><%= @job.end_date%></p> We have to adapt the format
+        <h5><%= @job.remuneration%>€</h5>
       </div>
-    </div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= job.id %>">
-      Launch demo modal
+  </div>
+  <% @job.requests.each do |request| %>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @job.id %>">
+      <p><%= request.user.nickname%> <%=request.user.name%> <%= request.user.location %> </p>
     </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal<%= job.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal<%= @job.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -31,18 +24,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <% job.requests.each do |request| %>
-              <p><%= request.user.name %></p>
-              <p><%= request.job.job_title %></p>
-            <% end %>
+            <p><%= request.user.name %></p>
+            <p><%= request.job.job_title %></p>
+            <p><%= request.job.job_description %></p>
+
           </div>
           <div class="modal-footer">
+          # instead of button, create links
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Accepted</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Declined</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
     </div>
-
-  </div>
-<% end %>
+  <% end %>
+</div>
