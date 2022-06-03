@@ -37,11 +37,11 @@
 
         <%= simple_form_for([@job, @request]) do |f| %>
           <%= f.input :status, value: 'pending', input_html: {hidden: true} %>
-          <%= f.submit 'Apply', class: 'btn btn-primary'%>
+           <% if !current_user.employer %>
+              <%= f.submit 'Apply', class: 'btn btn-primary'%>
+            <% end %>
         <% end %>
 
       </div>
-
-
     </div>
   </div>

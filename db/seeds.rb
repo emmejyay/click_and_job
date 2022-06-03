@@ -7,15 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Destroying Database"
-if Rails.env.development?
-  Review.destroy_all
-  UserSkill.destroy_all
-  JobSkill.destroy_all
-  Skill.destroy_all
-  Request.destroy_all
-  Job.destroy_all
-  User.destroy_all
-end
+Review.destroy_all
+UserSkill.destroy_all
+JobSkill.destroy_all
+Skill.destroy_all
+Request.destroy_all
+Job.destroy_all
+User.destroy_all
+
 
 puts "Creating students"
 
@@ -40,11 +39,11 @@ pedro = User.create!(email: "ped@ped.com", password: "Hello1!", employer: false,
 puts "Creating employers"
 
 # users(employers)
-emp_jack = User.create!(email: "jac@emp.com", password: "Hello1!", employer: true, name: "Jack", company: "Direct League", location: "Brussels, Belgium", description: "Organizer for mini football matches.", avg_rating: rand(1..5))
-emp_antoine = User.create!(email: "ant@emp.com", password: "Hello1!", employer: true, name: "Antoine", company: "Petzr", location: "Brussels, Belgium", description: "Organizer for pet care.", avg_rating: rand(1..5))
-emp_valentin = User.create!(email: "vale@emp.com", password: "Hello1!", employer: true, name: "Valentin", company: "MythiCar", location: "Brussels, Belgium", description: "Organizer for classic car maintenance.", avg_rating: rand(1..5))
-emp_maxime = User.create!(email: "max@emp.com", password: "Hello1!", employer: true, name: "Maxime", company: "Le Canotier", location: "Neupre, Belgium", description: "Wonderful restaurant just outside of Liege.", avg_rating: rand(1..5))
-emp_niko = User.create!(email: "nik@emp.com", password: "Hello1!", employer: true, name: "Niko", company: "Herbe a Chat Webcafe", location: "Brussels, Belgium", description: "Downtown Brussels internet cafe with tasty gourmet snacks.", avg_rating: rand(1..5))
+emp_jack = User.create!(email: "jac@emp.com", password: "Hello1!", employer: true, name: "Employer Jack", nickname: "https://img.icons8.com/glyph-neue/344/football2.png",company: "Direct League", location: "Brussels, Belgium", description: "Organizer for mini football matches.", avg_rating: rand(1..5))
+emp_antoine = User.create!(email: "ant@emp.com", password: "Hello1!", employer: true, name: "Employer Antoine", nickname: "https://img.icons8.com/glyph-neue/344/man-with-dog.png", company: "Petzr", location: "Brussels, Belgium", description: "Organizer for pet care.", avg_rating: rand(1..5))
+emp_valentin = User.create!(email: "vale@emp.com", password: "Hello1!", employer: true, name: "Employer Valentin", nickname: "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/2x/external-vintage-car-museum-flaticons-lineal-color-flat-icons-3.png", company: "MythiCar", location: "Brussels, Belgium", description: "Organizer for classic car maintenance.", avg_rating: rand(1..5))
+emp_maxime = User.create!(email: "max@emp.com", password: "Hello1!", employer: true, name: "Employer Maxime", nickname: "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-restaurant-street-food-flaticons-lineal-color-flat-icons.png", company: "Le Canotier", location: "Neupre, Belgium", description: "Wonderful restaurant just outside of Liege.", avg_rating: rand(1..5))
+emp_niko = User.create!(email: "nik@emp.com", password: "Hello1!", employer: true, name: "Employer Niko", nickname: "https://img.icons8.com/dotty/344/f--k-this-thing.png", company: "Herbe a Chat Webcafe", location: "Brussels, Belgium", description: "Downtown Brussels internet cafe with tasty gourmet snacks.", avg_rating: rand(1..5))
 
 puts "Creating jobs"
 
@@ -143,18 +142,18 @@ line_cook.skills << cleaning
 tech_support.skills << web_development
 tech_support.skills << design
 
-# puts "Creating requests"
+puts "Creating requests"
 
 # requests(students)
 # footballer_st_req_1 = Request.create(user: tony, job: footballer, status: "pending")
-# footballer_st_req_2 = Request.create(user: archi, job: footballer, status: "pending")
-# footballer_st_req_3 = Request.create(user: augusto, job: footballer, status: "pending")
+footballer_st_req_2 = Request.create(user: archi, job: footballer, status: "pending")
+footballer_st_req_3 = Request.create(user: augusto, job: footballer, status: "pending")
 
-# dog_walker_st_req_1 = Request.create(user: meghan, job: dog_walker, status: "pending")
-# dog_walker_st_req_2 = Request.create(user: pierrick, job: dog_walker, status: "pending")
+dog_walker_st_req_1 = Request.create(user: meghan, job: dog_walker, status: "pending")
+dog_walker_st_req_2 = Request.create(user: pierrick, job: dog_walker, status: "pending")
 
-# tech_support_st_req_1 = Request.create(user: george, job: tech_support, status: "pending")
-# tech_support_st_req_1 = Request.create(user: sebastien, job: tech_support, status: "pending")
+tech_support_st_req_1 = Request.create(user: george, job: tech_support, status: "pending")
+tech_support_st_req_1 = Request.create(user: sebastien, job: tech_support, status: "pending")
 
 # requests(employers)
 # footballer_emp_req_1 = Request.create(user: tony, job: footballer, status: "pending")
