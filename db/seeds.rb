@@ -142,18 +142,18 @@ line_cook.skills << cleaning
 tech_support.skills << web_development
 tech_support.skills << design
 
-# puts "Creating requests"
+puts "Creating requests"
 
 # requests(students)
 # footballer_st_req_1 = Request.create(user: tony, job: footballer, status: "pending")
-# footballer_st_req_2 = Request.create(user: archi, job: footballer, status: "pending")
-# footballer_st_req_3 = Request.create(user: augusto, job: footballer, status: "pending")
+footballer_st_req_2 = Request.create(user: archi, job: footballer, status: "pending")
+footballer_st_req_3 = Request.create(user: augusto, job: footballer, status: "pending")
 
-# dog_walker_st_req_1 = Request.create(user: meghan, job: dog_walker, status: "pending")
-# dog_walker_st_req_2 = Request.create(user: pierrick, job: dog_walker, status: "pending")
+dog_walker_st_req_1 = Request.create(user: meghan, job: dog_walker, status: "pending")
+dog_walker_st_req_2 = Request.create(user: pierrick, job: dog_walker, status: "pending")
 
-# tech_support_st_req_1 = Request.create(user: george, job: tech_support, status: "pending")
-# tech_support_st_req_1 = Request.create(user: sebastien, job: tech_support, status: "pending")
+tech_support_st_req_1 = Request.create(user: george, job: tech_support, status: "pending")
+tech_support_st_req_1 = Request.create(user: sebastien, job: tech_support, status: "pending")
 
 # requests(employers)
 # footballer_emp_req_1 = Request.create(user: tony, job: footballer, status: "pending")
