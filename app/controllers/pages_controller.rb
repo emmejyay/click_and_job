@@ -4,11 +4,11 @@ class PagesController < ApplicationController
   def home
   end
 
-  def dashboard
+  def job_created
     @job = Job.find(params[:id])
   end
 
-  def jobs_created_by_user
+  def dashboard
     @jobs = Job.where(user_id: current_user.id)
   end
 end
