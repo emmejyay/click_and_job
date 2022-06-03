@@ -3,7 +3,7 @@
   <div class="wrapper">
     <% current_user.requests.each do |request| %>
       <div class="student-card-show">
-          <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Lago di Braies">
+          <%= link_to image_tag(request.job.img_url), job_path(request.job), class: "card-img-top" %>
 
           <!-- A div with card__details class to hold the details in the card  -->
             <div class="student-card__details">
