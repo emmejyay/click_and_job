@@ -20,9 +20,9 @@
           </div>
 
           <h4><%= job.job_description%></h4>
-          <p><strong>Start at: </strong><%= job.start_date%></p>
-          <p><strong>End: </strong><%= job.end_date%></p>
-          <h5>€ <%= job.remuneration%></h5>
+            <p><strong>Start at: </strong><%= job.start_date%></p>
+            <p><strong>End: </strong><%= job.end_date%></p>
+          <h5><%= job.remuneration%>€</h5>
 
           <% if !current_user.employer %>
             <%= simple_form_for([job, @request]) do |f| %>
