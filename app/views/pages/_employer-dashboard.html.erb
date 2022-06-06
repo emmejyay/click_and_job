@@ -1,11 +1,14 @@
-<div id="container">
-  <div class="request-header">
+<div class="request-header">
     <h3>My Posted Jobs:</h3>
-  </div>
+</div>
+
+
+
+<div class="container-employer">
   <% @jobs.each do |job| %>
-    <div class="student-card-show">
+    <div class="card-show" style="width: 18rem;">
       <%= link_to image_tag(job.img_url), job_path(job), class: "card-img-top" %>
-      <div class="student-card__details">
+      <div class="card__details">
         <h4><strong>Required skills: </strong></h4>
           <% job.skills.each do |skill| %>
             <span class="tag"><%=skill.name%></span>
