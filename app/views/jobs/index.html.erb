@@ -46,7 +46,7 @@
               <h4><strong><%= job.remuneration%></strong>€ per hour</h4>
             </div>
             <div>
-              <h4><strong><%= (job.end_date.strftime("%H").to_i - job.start_date.strftime("%H").to_i) * job.remuneration%></strong>€ total</h4>
+              <h4><strong><%= ((job.end_date.strftime("%H").to_i) - (job.start_date.strftime("%H").to_i)) * job.remuneration%></strong>€ total</h4>
             </div>
           </div>
           <div class='inline-block align-bottom m-4'>
