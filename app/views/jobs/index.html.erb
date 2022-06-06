@@ -8,7 +8,6 @@
         <%= link_to image_tag(job.img_url), job_path(job), class: "card-img-top" %>
         <div class="card__details">
           <h4><strong>Required skills: </strong></h4>
-          <%# interrate over skills? @job.skills  %>
           <% job.skills.each do |skill| %>
             <span class="tag"><%=skill.name%></span>
           <% end %>
@@ -16,14 +15,20 @@
           <!-- A div with name class for the name of the card -->
           <div class="name">
             <%= job.job_title%>
-            <h4><strong><%= job.user.location%></strong></h4>
+            <h4><strong><%= job.location%></strong></h4>
           </div>
 
           <h4><%= job.job_description%></h4>
-            <p><strong>Start at: </strong><%= job.start_date%></p>
-            <p><strong>End: </strong><%= job.end_date%></p>
-          <h5><%= job.remuneration%>€</h5>
-
+            <p><strong>Start: </strong><%= job.start_date.strftime("%d/%m/%y at %H:%M")%></p>
+            <p><strong>End: </strong><%= job.end_date.strftime("%d/%m/%y at %H:%M")%></p>
+          <div class="d-flex justify-content-between">
+            <div>
+              <h4><strong><%= job.remuneration%></strong>€ per hour</h4>
+            </div>
+            <div>
+              <h4><strong><%= (job.end_date.strftime("%H").to_i - job.start_date.strftime("%H").to_i) * job.remuneration%></strong>€ total</h4>
+            </div>
+          </div>
           <% if !current_user.employer %>
             <%= simple_form_for([job, @request]) do |f| %>
             <%= f.input :status, value: 'pending', input_html: {hidden: true}, label: false %>
