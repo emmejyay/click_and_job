@@ -39,23 +39,27 @@ pedro = User.create!(email: "ped@ped.com", password: "Hello1!", employer: false,
 puts "Creating employers"
 
 # users(employers)
-emp_jack = User.create!(email: "jac@emp.com", password: "Hello1!", employer: true, name: "Employer Jack", nickname: "https://img.icons8.com/glyph-neue/344/football2.png",company: "Direct League", location: "Brussels, Belgium", description: "Organizer for mini football matches.", avg_rating: rand(1..5))
-emp_antoine = User.create!(email: "ant@emp.com", password: "Hello1!", employer: true, name: "Employer Antoine", nickname: "https://img.icons8.com/glyph-neue/344/man-with-dog.png", company: "Petzr", location: "Brussels, Belgium", description: "Organizer for pet care.", avg_rating: rand(1..5))
-emp_valentin = User.create!(email: "vale@emp.com", password: "Hello1!", employer: true, name: "Employer Valentin", nickname: "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/2x/external-vintage-car-museum-flaticons-lineal-color-flat-icons-3.png", company: "MythiCar", location: "Brussels, Belgium", description: "Organizer for classic car maintenance.", avg_rating: rand(1..5))
-emp_maxime = User.create!(email: "max@emp.com", password: "Hello1!", employer: true, name: "Employer Maxime", nickname: "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-restaurant-street-food-flaticons-lineal-color-flat-icons.png", company: "Le Canotier", location: "Neupre, Belgium", description: "Wonderful restaurant just outside of Liege.", avg_rating: rand(1..5))
-emp_niko = User.create!(email: "nik@emp.com", password: "Hello1!", employer: true, name: "Employer Niko", nickname: "https://img.icons8.com/dotty/344/f--k-this-thing.png", company: "Herbe a Chat Webcafe", location: "Brussels, Belgium", description: "Downtown Brussels internet cafe with tasty gourmet snacks.", avg_rating: rand(1..5))
+emp_jack = User.create!(email: "jac@emp.com", password: "Hello1!", employer: true, name: "Employer Jack", img_url: "https://img.icons8.com/glyph-neue/344/football2.png",company: "Direct League", location: "Brussels, Belgium", description: "Organizer for mini football matches.", avg_rating: rand(1..5))
+emp_antoine = User.create!(email: "ant@emp.com", password: "Hello1!", employer: true, name: "Employer Antoine", img_url: "https://img.icons8.com/glyph-neue/344/man-with-dog.png", company: "Petzr", location: "Brussels, Belgium", description: "Organizer for pet care.", avg_rating: rand(1..5))
+emp_valentin = User.create!(email: "vale@emp.com", password: "Hello1!", employer: true, name: "Employer Valentin", img_url: "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/2x/external-vintage-car-museum-flaticons-lineal-color-flat-icons-3.png", company: "MythiCar", location: "Brussels, Belgium", description: "Organizer for classic car maintenance.", avg_rating: rand(1..5))
+emp_maxime = User.create!(email: "max@emp.com", password: "Hello1!", employer: true, name: "Employer Maxime", img_url: "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-restaurant-street-food-flaticons-lineal-color-flat-icons.png", company: "Le Canotier", location: "Brussels, Belgium", description: "Wonderful restaurant with classy atmosphere.", avg_rating: rand(1..5))
+emp_niko = User.create!(email: "nik@emp.com", password: "Hello1!", employer: true, name: "Employer Niko", img_url: "https://img.icons8.com/dotty/344/f--k-this-thing.png", company: "Herbe a Chat Webcafe", location: "Brussels, Belgium", description: "Downtown Brussels internet cafe with tasty gourmet snacks.", avg_rating: rand(1..5))
 
 puts "Creating jobs"
 
 # jobs
-footballer = Job.create!(user: emp_jack, job_title: "Footballer", job_description: "Player needed for quarter-final match to prevent forfeit.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45), img_url: "https://images.unsplash.com/photo-1624280157150-4d1ed8632989?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNvY2NlciUyMHBsYXllcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
-dog_walker = Job.create!(user: emp_antoine, job_title: "Dog Walker", job_description: "Dog walker needed for downtown Brussels client.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45), img_url: "https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwd2Fsa2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
-workshop_mgr = Job.create!(user: emp_valentin, job_title: "Workshop Manager", job_description: "Client is looking for someone to help host a classic car maintenance workshop.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45), img_url: "https://images.unsplash.com/photo-1628577478162-d4d00467c627?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDl8fGNhciUyMHdvcmtzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
-line_cook = Job.create!(user: emp_maxime, job_title: "Line Cook", job_description: "Line cook needed to work Friday evening dinner rush and clean up after.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45), img_url: "https://images.unsplash.com/photo-1590577976322-3d2d6e2130d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
-tech_support = Job.create!(user: emp_niko, job_title: "Tech Support Teaching Assistant", job_description: "We are hosting a landing page workshop and need support for troubleshooting with attendees.", start_date: Date.today + 1.day, end_date: Date.today + 1.day, remuneration: rand(15..45), img_url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dGVjaCUyMHdvcmtzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+dog_walker_1 = Job.create!(user: emp_antoine, job_title: "Dog Walker", location: "Brussels, Belgium", job_description: "Dog walker needed for downtown Brussels client.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwd2Fsa2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+workshop_mgr = Job.create!(user: emp_valentin, job_title: "Workshop Manager", location: "Brussels, Belgium", job_description: "Client is looking for someone to help host a classic car maintenance workshop.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1628577478162-d4d00467c627?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDl8fGNhciUyMHdvcmtzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+dog_walker_2 = Job.create!(user: emp_antoine, job_title: "Dog Walker", location: "Antwerp, Belgium", job_description: "Dog walker needed for Antwerp client.", start_date: DateTime.now + 6/24r, end_date: DateTime.now + 10/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwd2Fsa2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+line_cook = Job.create!(user: emp_maxime, job_title: "Line Cook", location: "Brussels, Belgium", job_description: "Line cook needed to work Friday evening dinner rush and clean up after.", start_date: DateTime.now + 6/24r, end_date: DateTime.now + 10/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1590577976322-3d2d6e2130d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+server = Job.create!(user: emp_maxime, job_title: "Server", location: "Brussels, Belgium", job_description: "Server needed to work Friday evening dinner rush and clean up after.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1512485800893-b08ec1ea59b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMHNlcnZlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+tech_support = Job.create!(user: emp_niko, job_title: "Tech Support Teaching Assistant", location: "Brussels, Belgium", job_description: "We are hosting a landing page workshop and need support for troubleshooting with attendees.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dGVjaCUyMHdvcmtzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+dog_walker_3 = Job.create!(user: emp_antoine, job_title: "Dog Walker", location: "Ghent, Belgium", job_description: "Dog walker needed for Ghent client.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwd2Fsa2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+dog_walker_4 = Job.create!(user: emp_antoine, job_title: "Dog Walker", location: "Liege, Belgium", job_description: "Dog walker needed for Liege client.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwd2Fsa2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+footballer = Job.create!(user: emp_jack, job_title: "Footballer", location: "Brussels, Belgium", job_description: "Player needed for quarter-final match to prevent forfeit.", start_date: DateTime.now, end_date: DateTime.now + 2/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1624280157150-4d1ed8632989?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNvY2NlciUyMHBsYXllcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+dog_walker_5 = Job.create!(user: emp_antoine, job_title: "Dog Walker", location: "Bruges, Belgium", job_description: "Dog walker needed for Bruges client.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwd2Fsa2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
 
 puts "Creating skills"
-
 # # skills
 football = Skill.create!(name: 'football')
 sports = Skill.create!(name: 'sports')
@@ -76,6 +80,7 @@ puts "Creating user skills"
 meghan.skills << web_development
 meghan.skills << design
 meghan.skills << cooking
+meghan.skills << waitstaffing
 meghan.skills << cleaning
 meghan.skills << dog_walking
 meghan.skills << pet_sitting
@@ -86,6 +91,8 @@ maxime.skills << sports
 ted.skills << web_development
 ted.skills << design
 ted.skills << football
+ted.skills << waitstaffing
+ted.skills << cleaning
 jack.skills << web_development
 jack.skills << design
 jack.skills << languages
@@ -135,10 +142,16 @@ puts "Creating job skills"
 
 # JobSkill.create(job: footballer, skill: football)
 footballer.skills << football
-dog_walker.skills << dog_walking
+dog_walker_1.skills << dog_walking
+dog_walker_2.skills << dog_walking
+dog_walker_3.skills << dog_walking
+dog_walker_4.skills << dog_walking
+dog_walker_5.skills << dog_walking
 workshop_mgr.skills << car_maintenance
 line_cook.skills << cooking
 line_cook.skills << cleaning
+server.skills << waitstaffing
+server.skills << cleaning
 tech_support.skills << web_development
 tech_support.skills << design
 
@@ -149,8 +162,8 @@ puts "Creating requests"
 footballer_st_req_2 = Request.create(user: archi, job: footballer, status: "pending")
 footballer_st_req_3 = Request.create(user: augusto, job: footballer, status: "pending")
 
-dog_walker_st_req_1 = Request.create(user: meghan, job: dog_walker, status: "pending")
-dog_walker_st_req_2 = Request.create(user: pierrick, job: dog_walker, status: "pending")
+dog_walker_st_req_1 = Request.create(user: meghan, job: dog_walker_1, status: "pending")
+dog_walker_st_req_2 = Request.create(user: pierrick, job: dog_walker_1, status: "pending")
 
 tech_support_st_req_1 = Request.create(user: george, job: tech_support, status: "pending")
 tech_support_st_req_1 = Request.create(user: sebastien, job: tech_support, status: "pending")
@@ -168,7 +181,7 @@ tech_support_st_req_1 = Request.create(user: sebastien, job: tech_support, statu
 puts "Creating reviews"
 
 # reviews of students
-review_meghan = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_meghan = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
 review_maxime = Review.create!(writer: emp_niko, recipient: maxime, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
 # review_ted = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
 # review_jack = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
@@ -187,7 +200,7 @@ review_pedro = Review.create!(writer: emp_niko, recipient: pedro, job: tech_supp
 
 # reviews of employers
 review_emp_jack = Review.create!(writer: pierrick, recipient: emp_jack, job: footballer, content: "Cool app and great management!  Would happily sub as a player again.")
-review_emp_antoine = Review.create!(writer: meghan, recipient: emp_antoine, job: dog_walker, content: "Cool app and great management!  Very easy to find all the details you need for a successful walk.")
+review_emp_antoine = Review.create!(writer: meghan, recipient: emp_antoine, job: dog_walker_1, content: "Cool app and great management!  Very easy to find all the details you need for a successful walk.")
 review_emp_valentin = Review.create!(writer: mouton, recipient: emp_valentin, job: workshop_mgr, content: "Awesome location and great resource for classic car owners.  Also provided lunch!")
 review_emp_maxime = Review.create!(writer: niko, recipient: emp_maxime, job: line_cook, content: "Fancy restaurant with all new equipment.  Very clean. Looking to apply for a full time position.")
 review_emp_niko = Review.create!(writer: pedro, recipient: emp_niko, job: tech_support, content: "Nice guy who really knows his code. Also a great cafe. The cats are friendly!")
