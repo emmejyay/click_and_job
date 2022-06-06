@@ -1,11 +1,31 @@
-<div class="index-title"><h1>Open Jobs around you!</h1></div>
+<div class="search-bar">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="jobs">
+        <%= form_tag jobs_path, method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a job"%>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="container">
   <div class="d-flex justify-content-between row">
     <% @jobs.each do |job| %>
       <!-- A div with card class for the card  -->
       <div class="card-show" style="width: 18rem;">
-        <%= link_to image_tag(job.img_url), job_path(job), class: "card-img-top" %>
+        <% if !job.img_url %>
+          <%= link_to image_tag("https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29taW5nJTIwc29vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"), job_path(job), class: "card-img-top" %>
+        <% else %>
+          <%= link_to image_tag(job.img_url), job_path(job), class: "card-img-top" %>
+        <% end %>
+
         <div class="card__details">
           <h4><strong>Required skills: </strong></h4>
           <% job.skills.each do |skill| %>
