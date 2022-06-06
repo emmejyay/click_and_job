@@ -4,6 +4,7 @@ class JobsController < ApplicationController
     if params[:query].present?
       sql_query = " \
         jobs.job_title @@ :query \
+        OR jobs.location @@ :query \
         OR jobs.job_description @@ :query \
         OR skills.name @@ :query \ "
       @jobs = Job.joins(:skills).where(sql_query, query: "%#{params[:query]}%")
