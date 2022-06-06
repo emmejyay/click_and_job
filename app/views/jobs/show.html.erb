@@ -40,6 +40,7 @@
       <h5><%= @job.remuneration%>€</h5>
     </div>
      <%= link_to 'Back', '/dashboard', class: 'btn btn-primary' %>
+     <%= link_to 'Delete Offer', job_path(@job), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
   </div>
 
 
