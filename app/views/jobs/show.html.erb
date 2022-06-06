@@ -35,6 +35,7 @@
       <p><strong>End: </strong><%= @job.end_date%></p>
       <h5><%= @job.remuneration%>€</h5>
     </div>
+     <%= link_to 'Back', '/dashboard', class: 'btn btn-primary' %>
   </div>
 
 
@@ -81,7 +82,7 @@
             </div>
           <% else %>
             <% @job.requests.where(status: "pending").each do |request| %>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>">
+              <button type="button" class="btn btn-primary h-25 m-3" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>">
                 <p> <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"> <%=request.user.name%> <%= request.user.location %> </p>
               </button>
 
@@ -89,14 +90,15 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Application from: <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"> <%=request.user.name%></h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Application from: </h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <p>From: <%= request.user.name %></p>
+                      <p> <%=request.user.name%> <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"></p>
                       <p>Location: <%= request.user.location %></p>
-                      <p>About me: <%= request.user.description %></p>
+                      <p>About <%=request.user.name%>: <%= request.user.description %></p>
                       <p>Rating: <%= request.user.avg_rating %> stars</p>
+                      <%# <p>Reviews: <%= job.request.user.recipient stars</p>   %>
 
                     </div>
                     <div class="modal-footer">
@@ -114,9 +116,7 @@
               </div>
             <% end %>
           <% end %>
-          <%= link_to 'Back', '/dashboard', class: 'btn btn-primary' %>
         <% end %>
       </div>
-
     </div>
 </div>
