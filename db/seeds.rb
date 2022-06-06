@@ -168,6 +168,11 @@ dog_walker_st_req_2 = Request.create(user: pierrick, job: dog_walker_1, status: 
 tech_support_st_req_1 = Request.create(user: george, job: tech_support, status: "pending")
 tech_support_st_req_1 = Request.create(user: sebastien, job: tech_support, status: "pending")
 
+server_st_req_1 = Request.create(user: sebastien, job: server, status: "pending")
+server_st_req_2 = Request.create(user: ted, job: server, status: "pending")
+server_st_req_3 = Request.create(user: tony, job: server, status: "pending")
+server_st_req_4 = Request.create(user: pedro, job: server, status: "pending")
+
 # requests(employers)
 # footballer_emp_req_1 = Request.create(user: tony, job: footballer, status: "pending")
 
