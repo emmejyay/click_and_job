@@ -78,20 +78,21 @@
         <% else %>
           <% @job.requests.where(status: "pending").each do |request| %>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>">
-              <p><%= request.user.nickname%> <%=request.user.name%> <%= request.user.location %> </p>
+              <p> <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"> <%=request.user.name%> <%= request.user.location %> </p>
             </button>
 
             <div class="modal fade" id="exampleModal<%= request.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Application from: <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"> <%=request.user.name%></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <p><%= request.user.name %></p>
-                    <p><%= request.job.job_title %></p>
-                    <p><%= request.job.job_description %></p>
+                    <p>From: <%= request.user.name %></p>
+                    <p>Location: <%= request.user.location %></p>
+                    <p>About me: <%= request.user.description %></p>
+                    <p>Rating: <%= request.user.avg_rating %> stars</p>
 
                   </div>
                   <div class="modal-footer">
@@ -103,7 +104,6 @@
                       <%= f.input :status, label: false, input_html: {hidden: true, value: 'declined'} %>
                       <%= f.submit "Decline" %>
                     <% end %>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                   </div>
                 </div>
               </div>

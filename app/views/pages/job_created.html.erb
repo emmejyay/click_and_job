@@ -41,8 +41,9 @@
                   <div class="modal-body">
                     <img class="avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>">
                     <p><%= request.user.name %></p>
-                    <p><%= request.job.job_title %></p>
-                    <p><%= request.job.job_description %></p>
+                    <p><%= request.user.location %></p>
+                    <p><%= request.job.description %></p>
+                    <p><%= request.job.avg_rating %></p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Accept</button>
