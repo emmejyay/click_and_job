@@ -18,7 +18,7 @@
           <% if !current_user.employer %>
             <li><img class="avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= current_user.nickname %>"></li>
           <% else %>
-            <li><img class="avatar" src= "<%= current_user.nickname %>"></li>
+            <li><img class="avatar" src= "<%= current_user.img_url %>"></li>
           <% end %>
           <%# class= "avatar"  %>
           <%# <li><%= link_to "My profile", current_user_path, class:"btn btn-ghost"</li>  %>

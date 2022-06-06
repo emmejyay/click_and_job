@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_135452) do
+ActiveRecord::Schema.define(version: 2022_06_06_083945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,14 @@ ActiveRecord::Schema.define(version: 2022_06_02_135452) do
   create_table "jobs", force: :cascade do |t|
     t.string "job_title"
     t.text "job_description"
-    t.date "start_date"
-    t.date "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.integer "remuneration"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "img_url"
+    t.string "location"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_135452) do
     t.text "description"
     t.integer "avg_rating", default: 0
     t.string "company"
+    t.string "img_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
