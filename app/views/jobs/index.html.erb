@@ -1,13 +1,13 @@
 <div class="search-bar">
   <div class="row justify-content-center">
-    <div class="col-sm-8">
+    <div class="col-sm-8 mt-1">
       <div id="jobs">
         <%= form_tag jobs_path, method: :get do %>
           <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find a job"%>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btn btn-primary mt-1" %>
         <% end %>
       </div>
     </div>
@@ -16,25 +16,56 @@
 
 
 <div class="container">
-  <div class="d-flex justify-content-between row">
+  <div class="d-flex justify-content-center row">
     <% @jobs.each do |job| %>
       <!-- A div with card class for the card  -->
-      <div class="card-show" style="width: 18rem;">
+      <div class="card-show position-relative" style="width: 18rem;">
         <% if !job.img_url %>
           <%= link_to image_tag("https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29taW5nJTIwc29vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"), job_path(job), class: "card-img-top" %>
         <% else %>
           <%= link_to image_tag(job.img_url), job_path(job), class: "card-img-top" %>
         <% end %>
 
-        <div class="card__details">
-          <h4><strong>Required skills: </strong></h4>
-          <% job.skills.each do |skill| %>
-            <span class="tag"><%=skill.name%></span>
-          <% end %>
+        <div class="card__details mb-3">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h4><strong>Required skills: </strong></h4>
+              <% job.skills.each do |skill| %>
+                <span class="tag"><%=skill.name%></span>
+              <% end %>
+            </div>
+            <div>
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal<%= job.user.id %>">
+                <img class="avatar" alt="Avatar" src= "<%= job.user.img_url %>">
+              </button>
 
-          <!-- A div with name class for the name of the card -->
+              <div class="modal fade" id="exampleModal<%= job.user.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Employer Details</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img class="avatar-square" alt="Company avatar" src= "<%= job.user.img_url %>">
+                      <p class= "mt-3"><strong>Company:  </strong><%= job.user.company %></p>
+                      <p><strong>Company description:  </strong><%= job.user.description %></p>
+                      <p><strong>Average rating (out of 5):  </strong><%= job.user.avg_rating %></p>
+                      <p><strong>Reviews:  </strong></p>
+                      <%# <ul>
+                        <% job.reviews.each do |review| %>
+                          <%# <li>"<%= job.review.content " - <%= job.review.writer.name </li>
+                        <%# <% end %>
+                      <%# </ul> %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
           <div class="name">
             <%= job.job_title%>
+            <h4>for <strong><%= job.user.company%></strong></h4>
             <h4><strong><%= job.location%></strong></h4>
           </div>
 
@@ -46,17 +77,23 @@
               <h4><strong><%= job.remuneration%></strong>€ per hour</h4>
             </div>
             <div>
-              <h4><strong><%= (job.end_date.strftime("%H").to_i - job.start_date.strftime("%H").to_i) * job.remuneration%></strong>€ total</h4>
+              <% if ((job.end_date.strftime("%d").to_i)>(job.start_date.strftime("%d").to_i))%>
+                <h4><strong><%=(((job.end_date.strftime("%H").to_i) + 24) - (job.start_date.strftime("%H").to_i)) * job.remuneration%></strong>€ total</h4>
+              <% else %>
+                <h4><strong><%=((job.end_date.strftime("%H").to_i) - (job.start_date.strftime("%H").to_i)) * job.remuneration%></strong>€ total</h4>
+              <% end %>
             </div>
           </div>
-          <% if !current_user.employer %>
-            <%= simple_form_for([job, @request]) do |f| %>
-            <%= f.input :status, value: 'pending', input_html: {hidden: true}, label: false %>
-            <%= f.submit 'Apply', class: 'btn btn-primary'%>
+          <div class='inline-block align-bottom m-4'>
+            <% if !current_user.employer %>
+              <%= simple_form_for([job, @request]) do |f| %>
+              <%= f.input :status, value: 'pending', input_html: {hidden: true}, label: false %>
+              <%= f.submit 'Apply', class: 'btn btn-primary position-absolute bottom-0 start-50 translate-middle-x my-2'%>
+              <% end %>
             <% end %>
-          <% end %>
-
+          </div>
         </div>
+
       </div>
     <%end%>
   </div>
