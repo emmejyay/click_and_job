@@ -97,7 +97,7 @@
             </div>
           <% else %>
             <% @job.requests.where(status: "pending").each do |request| %>
-                <div class="card-product" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>" >
+                <div class="card-product" type="" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>" >
                  <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>">
                   <div class="card-product-infos">
                     <h2><%=request.user.name%></h2>
