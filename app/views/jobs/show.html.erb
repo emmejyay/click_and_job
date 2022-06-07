@@ -118,9 +118,9 @@
                       <p> <strong><%=request.user.name%> </strong><img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"></p>
                       <p><strong>Location: </strong><%= request.user.location %></p>
                       <p><strong>About </strong> <%=request.user.name%>: <%= request.user.description %></p>
-                      <p><strong>Rating:</strong> <%= request.user.avg_rating %> ⭐️</p>
+                      <p><strong>Rating:</strong> <%=  "⭐" * request.user.avg_rating %> </p>
                       <p><strong>Review:</strong> <% request.job.reviews.each do |review| %></p>
-                      <p><%= review.content * "⭐️"%></p>
+                      <p><%= review.content%></p>
                       <% end %>
                     </div>
                     <div class="modal-footer">
