@@ -1,6 +1,6 @@
 
 
-<div class='container m-3'>
+<div class='container-form'>
   <%= simple_form_for(@job) do |f| %>
     <%= f.input :img_url %>
     <%= f.input :job_title %>
@@ -8,6 +8,10 @@
     <%= f.input :start_date %>
     <%= f.input :end_date %>
     <%= f.input :remuneration %>
+    <%= f.input :location,
+              input_html: { data: { geocoder_target: "location" } },
+              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['pk.eyJ1IjoibWF4aWphcHMiLCJhIjoiY2w0M3cxa3R5MTdsbDNkcjJkMXZzbTZheSJ9.W7KeJ6pL9tCCRkgiNNIkXA'] }, class: "d-none" } %>
+
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 </div>
