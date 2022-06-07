@@ -58,6 +58,16 @@
               <p><%= request.user.nickname%> <%=request.user.name%> <%= request.user.location %> </p>
             </button>
 
+
+            <div class="card-product">
+              <img src="https://s3-alpha-sig.figma.com/img/6811/cb81/6b684198696b0af8ea0326abf59e1035?Expires=1655078400&Signature=Yioao3aEIrKPn3ZAMRMIlEK5vfu8EyDfkk4Q240nStdwk4z1b32u-ym-Sq12AwI8ktzK73D8vpy~FtdypbHbNc2rbMO9-6GPodDlo4l4tYy21CM5AujRKnohpwknbnPnpqM6lnPbSbgPNFU9DwLeHiqI~8elqbsJByOKYuFT4QpfqI~ajB--KX8vSbvC23c~hjReGnZvjXTuQd3AtJQR2nQC4BuiHQCwKb0emswvRmuh5X8QO8F-MBEf8lR9R8SUDPQKdbQaf-ruUkFtJ8iEtMwexdjgKe2ZPIytKpy82G9iSJZjuADrfP0u-LD04XtTctsT5lCuLn1Wow9TFmsTjQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" class="avatar" />
+              <div class="card-product-infos">
+                <h2>Le Wagon</h2>
+                <p>Student needed for an event on monday - Remuneration: 50€</p>
+              </div>
+            </div>
+
+
             <div class="modal fade" id="exampleModal<%= @job.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -87,9 +97,15 @@
             </div>
           <% else %>
             <% @job.requests.where(status: "pending").each do |request| %>
-              <button type="button" class="btn btn-primary h-25 m-3" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>">
-                <p> <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"> <%=request.user.name%> <%= request.user.location %> </p>
-              </button>
+                <div class="card-product" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>" >
+                 <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>">
+                <div class="card-product-infos">
+                    <h2><%=request.user.name%></h2>
+                    <p><%= request.user.location %></p>
+                  </div>
+               </div>
+
+
 
               <div class="modal fade" id="exampleModal<%= request.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -103,9 +119,9 @@
                       <p><strong>Location: </strong><%= request.user.location %></p>
                       <p><strong>About </strong> <%=request.user.name%>: <%= request.user.description %></p>
                       <p><strong>Rating:</strong> <%= request.user.avg_rating %> ⭐️</p>
-                      <p><strong>Review:</strong> <% request.job.reviews.each do |review| %>
-                      <p><%= review.content %> ⭐️</p>
-                      <% end %>
+                      <%# <p><strong>Review:</strong> <% request.job.reviews.each do |review| %>
+                      <%# <p><%= review.content ⭐️</p>  %>
+                      <%# <% end %>
 
                     </div>
                     <div class="modal-footer">
