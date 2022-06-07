@@ -12,6 +12,14 @@ class JobsController < ApplicationController
       @jobs = Job.all
     end
     @request = Request.new
+
+    @markers = @jobs.geocoded.map do |job|
+      {
+        lat: job.latitude,
+        lng: job.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { job: job })
+      }
+    end
   end
 
   def show
