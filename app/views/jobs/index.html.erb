@@ -1,18 +1,20 @@
 <div class="search-bar">
   <div class="row justify-content-center">
-    <div class="col-sm-8 mt-1">
+    <div class="col-sm-8">
       <div id="jobs">
         <%= form_tag jobs_path, method: :get do %>
           <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a job"%>
-          <%= submit_tag "Search", class: "btn btn-primary mt-1" %>
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a movie"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
-      </div>
-    </div>
+       </div>
+     </div>
+   </div>
   </div>
-</div>
+
 
 
 <div class="container">
