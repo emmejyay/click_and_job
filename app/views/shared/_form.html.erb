@@ -1,4 +1,7 @@
-<%= simple_form_for(@job) do |f| %>
+
+
+<div class='container m-3'>
+  <%= simple_form_for(@job) do |f| %>
     <%= f.input :img_url %>
     <%= f.input :job_title %>
     <%= f.input :job_description %>
@@ -7,3 +10,4 @@
     <%= f.input :remuneration %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
+</div>
