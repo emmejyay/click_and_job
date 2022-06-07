@@ -39,7 +39,7 @@
       <p><strong>End: </strong><%= @job.end_date%></p>
       <h5><%= @job.remuneration%>€</h5>
     </div>
-     <%= link_to 'Back', '/dashboard', class: 'btn btn-primary' %>
+     <%= link_to 'Back', '/jobs', class: 'btn btn-primary' %>
   </div>
 
 
@@ -102,7 +102,9 @@
                       <p><strong>Location: </strong><%= request.user.location %></p>
                       <p><strong>About </strong> <%=request.user.name%>: <%= request.user.description %></p>
                       <p><strong>Rating:</strong> <%= request.user.avg_rating %> ⭐️</p>
-                      <p><strong>Rating:</strong> <%= request.reviews.content %> ⭐️</p>
+                      <p><strong>Review:</strong> <% request.job.reviews.each do |review| %>
+                      <p><%= review.content %> ⭐️</p>
+                      <% end %>
 
                     </div>
                     <div class="modal-footer">
