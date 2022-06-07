@@ -10,7 +10,7 @@
   display: flex;
   margin-top: 16px;
   padding: 16px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .request-header h3{
@@ -40,6 +40,7 @@
   border-radius: 12px;
   height: 214px;
   object-fit: cover;
+
 }
 
 #container {
@@ -54,6 +55,7 @@
   padding: 8px;
   border-radius: 12px;
   margin: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .tag {
@@ -79,6 +81,13 @@
   font-size: 14px;
   color: #7f8c9b;
   line-height: 150%;
+}
+
+.student-card-show{
+  background-color: white;
+  border: 1px solid #bacdd8;
+  padding: 8px;
+  border-radius: 12px;
 }
 
 /* Style button element */

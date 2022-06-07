@@ -14,33 +14,34 @@
 
 <div id="container-job">
 
-  <!-- A div with card class for the card  -->
-  <div class="card-show">
-    <% if @job.img_url %>
-      <%= link_to image_tag(@job.img_url), job_path(@job), class: "card-img-top" %>
-    <% else %>
-      <%= link_to image_tag("https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29taW5nJTIwc29vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"), job_path(@job), class: "card-img-top" %>
-    <% end %>
-    <div class="card__details">
-      <h4><strong>Required skills: </strong></h4>
-      <%# interrate over skills? @job.skills  %>
-      <% @job.skills.each do |skill| %>
-        <span class="tag"><%=skill.name%></span>
+  <div class="card-show-container">
+    <div class="card-show">
+      <% if @job.img_url %>
+        <%= link_to image_tag(@job.img_url), job_path(@job), class: "card-img-top" %>
+      <% else %>
+        <%= link_to image_tag("https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29taW5nJTIwc29vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"), job_path(@job), class: "card-img-top" %>
       <% end %>
+      <div class="card__details">
+        <h4><strong>Required skills: </strong></h4>
+        <%# interrate over skills? @job.skills  %>
+        <% @job.skills.each do |skill| %>
+          <span class="tag"><%=skill.name%></span>
+        <% end %>
 
-      <!-- A div with name class for the name of the card -->
-      <div class="name">
-        <%= @job.job_title%>
-        <h4><%= @job.user.location%></h4>
+        <!-- A div with name class for the name of the card -->
+        <div class="name">
+          <%= @job.job_title%>
+          <h4><%= @job.user.location%></h4>
+        </div>
+        <br>
+        <h4><%= @job.job_description%></h4>
+        <p><strong>Start at: </strong><%= @job.start_date%></p>
+        <p><strong>End: </strong><%= @job.end_date%></p>
+        <h5><%= @job.remuneration%>€</h5>
       </div>
-      <br>
-      <h4><%= @job.job_description%></h4>
-      <p><strong>Start at: </strong><%= @job.start_date%></p>
-      <p><strong>End: </strong><%= @job.end_date%></p>
-      <h5><%= @job.remuneration%>€</h5>
+      <%= link_to 'Back', '/jobs', class: 'btn btn-primary' %>
+      <%= link_to 'Delete Offer', job_path(@job), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
     </div>
-     <%= link_to 'Back', '/jobs', class: 'btn btn-primary' %>
-     <%= link_to 'Delete Offer', job_path(@job), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
   </div>
 
 
@@ -53,19 +54,18 @@
         <% else %>
           <% if @job.requests.find_by(status: "accepted") %>
             <% request = @job.requests.find_by(status: "accepted") %>
-            <%# accepted request %>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @job.id %>">
-              <p><%= request.user.nickname%> <%=request.user.name%> <%= request.user.location %> </p>
-            </button>
 
 
-            <div class="card-product">
-              <img src="https://s3-alpha-sig.figma.com/img/6811/cb81/6b684198696b0af8ea0326abf59e1035?Expires=1655078400&Signature=Yioao3aEIrKPn3ZAMRMIlEK5vfu8EyDfkk4Q240nStdwk4z1b32u-ym-Sq12AwI8ktzK73D8vpy~FtdypbHbNc2rbMO9-6GPodDlo4l4tYy21CM5AujRKnohpwknbnPnpqM6lnPbSbgPNFU9DwLeHiqI~8elqbsJByOKYuFT4QpfqI~ajB--KX8vSbvC23c~hjReGnZvjXTuQd3AtJQR2nQC4BuiHQCwKb0emswvRmuh5X8QO8F-MBEf8lR9R8SUDPQKdbQaf-ruUkFtJ8iEtMwexdjgKe2ZPIytKpy82G9iSJZjuADrfP0u-LD04XtTctsT5lCuLn1Wow9TFmsTjQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" class="avatar" />
+            <div class="card-product" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @job.id %>" >
+              <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>">
               <div class="card-product-infos">
-                <h2>Le Wagon</h2>
-                <p>Student needed for an event on monday - Remuneration: 50€</p>
+                <h2><%=request.user.name%></h2>
+                <p><%= request.user.location %></p>
               </div>
             </div>
+
+
+
 
 
             <div class="modal fade" id="exampleModal<%= @job.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -99,7 +99,7 @@
             <% @job.requests.where(status: "pending").each do |request| %>
                 <div class="card-product" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>" >
                  <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>">
-                <div class="card-product-infos">
+                  <div class="card-product-infos">
                     <h2><%=request.user.name%></h2>
                     <p><%= request.user.location %></p>
                   </div>
