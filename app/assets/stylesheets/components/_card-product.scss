@@ -4,9 +4,17 @@
   overflow: hidden;
   height: 60px;
   background: white;
+  opacity: 1;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 12px;
+  transition: 1s;
+}
+
+.card-product :hover{
+  opacity: 1;
+  transition: 1s;
 }
 
 .card-product img {
