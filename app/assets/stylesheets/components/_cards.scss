@@ -55,3 +55,31 @@ font-weight: bold;
 .btn-ghost:hover {
   opacity: 1;
 }
+
+// changing bootstrap classes below to force CSS
+.modal-content {
+  border-radius: 2%;
+}
+
+.semi-opaque-text {
+  color: black !important;
+  opacity: .75 !important;
+}
+
+.background-cover {
+  background-size: cover;
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: white;
+}
+
+.rounded-circle-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  margin: 5px !important;
+  background-color: white;
+  border-color: black;
+}
