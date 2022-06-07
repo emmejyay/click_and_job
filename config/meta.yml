@@ -1,0 +1,5 @@
+meta_product_name: "Click & Job"
+meta_title: "Click & Job - As easy as it sounds!"
+meta_description: "A place where students and employers can quickly find and fill jobs on short notice."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
