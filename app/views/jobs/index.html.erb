@@ -17,7 +17,7 @@
 
 
 
-<div class="container">
+<div class="content">
   <div class="d-flex justify-content-center row">
     <% @jobs.each do |job| %>
       <!-- A div with card class for the card  -->
@@ -104,8 +104,8 @@
     <%end%>
   </div>
 
-  <div class="index-map">
-    <div style="width: 100%; height: 600px;"
+  <div id="map">
+    <div style="width: 100%; height: 100vh;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
