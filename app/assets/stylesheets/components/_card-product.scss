@@ -7,14 +7,15 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 12px;
+  transition: 1s;
 }
 
-.card-product img {
-  height: 85%;
-  width: 54px;
-  border-radius: 89px;
-  padding: 4px;
 
+
+.card-product img {
+  width: 54px;
+  padding: 4px;
 }
 
 

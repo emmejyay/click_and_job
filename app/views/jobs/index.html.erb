@@ -1,14 +1,14 @@
 <div class="search-bar">
   <div class="row justify-content-center">
-    <div class="col-sm-8">
+    <div class="col-sm-8" style="padding: 12px">
       <div id="jobs">
          <%= form_tag jobs_path, class: "d-flex", method: :get do %>
+          <%= submit_tag "Search", class: "btn btn-secondary" %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
-            placeholder: "Find a movie"
+            placeholder: "Find a job"
           %>
-          <%= submit_tag "Search", class: "btn btn-secondary" %>
         <% end %>
        </div>
      </div>

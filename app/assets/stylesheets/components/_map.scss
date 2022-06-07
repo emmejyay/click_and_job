@@ -15,12 +15,15 @@
 }
 
 #map{
-  width: 2000px;
+  width: 2500px;
   height: 100vh;
   height: 100vh;
   position: sticky;
   top: 0;
   margin-right: 24px;
+  border: 1px solid #bacdd8;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-top: 12px;
 }
 
 .content{

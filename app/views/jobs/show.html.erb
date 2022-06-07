@@ -55,18 +55,13 @@
       <% if @job.requests.find_by(status: "accepted") %>
         <% request = @job.requests.find_by(status: "accepted") %>
 
-
-        <div class="card-product" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @job.id %>" >
+        <div class="card-product border border-success" type="" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @job.id %>" >
           <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>">
           <div class="card-product-infos">
             <h2><%=request.user.name%></h2>
             <p><%= request.user.location %></p>
           </div>
         </div>
-
-
-
-
 
             <div class="modal fade" id="exampleModal<%= @job.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -97,7 +92,7 @@
             </div>
           <% else %>
             <% @job.requests.where(status: "pending").each do |request| %>
-                <div class="card-product" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>" >
+                <div class="card-product" type="" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>" >
                  <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>">
                   <div class="card-product-infos">
                     <h2><%=request.user.name%></h2>
