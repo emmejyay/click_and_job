@@ -2,13 +2,13 @@
   <div class="row justify-content-center">
     <div class="col-sm-8">
       <div id="jobs">
-        <%= form_tag jobs_path, method: :get do %>
+         <%= form_tag jobs_path, class: "d-flex", method: :get do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
             placeholder: "Find a movie"
           %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btn btn-secondary" %>
         <% end %>
        </div>
      </div>
@@ -17,11 +17,11 @@
 
 
 
-<div class="container">
+<div class="content">
   <div class="d-flex justify-content-center row">
     <% @jobs.each do |job| %>
       <!-- A div with card class for the card  -->
-      <div class="card-show position-relative" style="width: 18rem;">
+      <div class="card-show position-relative" style="width: 20rem;">
         <% if !job.img_url %>
           <%= link_to image_tag("https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29taW5nJTIwc29vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"), job_path(job), class: "card-img-top" %>
         <% else %>
@@ -40,7 +40,6 @@
             <div class="name">
               <%= job.job_title%>
               <h4>for <strong><%= job.user.company%></strong></h4>
-              <p class= "semi-opaque-text"><%= "⭐" * job.user.avg_rating.to_i  %></p>
               <h4><strong><%= job.location%></strong></h4>
             </div>
             <div>
@@ -103,47 +102,12 @@
       </div>
     <%end%>
   </div>
-  <div style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <div id="map">
+    <div style="width: 100%; height: 100vh;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
-
-
-        <%# <div class="card" style="width: 18rem;"> %>
-          <%# <div class="card-body"> %>
-            <%# <%= link_to image_tag(job.img_url), job_path(job), class: "card-img-top" %>
-            <%# <p class="card-text"><%=job.job_title%>
-            <%# <p class="card-text"><%=job.job_description%>
-            <%# <p class="card-text"><%=job.start_date%>
-            <%# <p class="card-text"><%=job.end_date%>
-            <%# <p class="card-text"><%=job.remuneration%>
-          <%# </div> %>
-        <%# </div> %>
-
-
-  <%# <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <div class="category mb-30">
-          <div class="job">
-            <% @jobs.each do |job| %>
-              <%# <%= link_to job_path(job) do %>
-                <%# <span class="colors1 mb-4"><%=job.job_title</span>  %>
-                <%# <% end %>
-                <%# <ul class="place"> %>
-                    <%# <li> %>
-                        <%# <p class="ps-5"><i class="fas fa-map-marker-alt pe-2"></i><%= job.job_description</p> %>
-                    <%# </li> %>
-                <%# </ul> %>
-                <%# <div class="d-flex align-items-center justify-content-between"> %>
-                    <%# <div class="left"> %>
-                        <%# <p><%=job.remuneration</p> %>
-                    <%# </div> %>
-                    <%# <span class="time"><%= Time.now</span>  %>
-                <%# </div> %>
-              <%# </div> %>
-            <%# <%end %>
-        <%# </div> %>
-      <%# </div> %>
-    <%# </div>  %>

@@ -13,3 +13,16 @@
   border: 1px solid lightgrey;
   box-shadow: none;
 }
+
+#map{
+  width: 2000px;
+  height: 100vh;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  margin-right: 24px;
+}
+
+.content{
+  display: flex;
+}
