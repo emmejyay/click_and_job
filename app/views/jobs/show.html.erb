@@ -39,7 +39,7 @@
       <p><strong>End: </strong><%= @job.end_date%></p>
       <h5><%= @job.remuneration%>€</h5>
     </div>
-     <%= link_to 'Back', '/dashboard', class: 'btn btn-primary' %>
+     <%= link_to 'Back', '/jobs', class: 'btn btn-primary' %>
      <%= link_to 'Delete Offer', job_path(@job), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
   </div>
 
@@ -99,11 +99,13 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <p> <%=request.user.name%> <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"></p>
-                      <p>Location: <%= request.user.location %></p>
-                      <p>About <%=request.user.name%>: <%= request.user.description %></p>
-                      <p>Rating: <%= request.user.avg_rating %> star(s)</p>
-                      <%# <p>Reviews: <%= job.request.user.reviews.recipient</p>  %>
+                      <p> <strong><%=request.user.name%> </strong><img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"></p>
+                      <p><strong>Location: </strong><%= request.user.location %></p>
+                      <p><strong>About </strong> <%=request.user.name%>: <%= request.user.description %></p>
+                      <p><strong>Rating:</strong> <%= request.user.avg_rating %> ⭐️</p>
+                      <p><strong>Review:</strong> <% request.job.reviews.each do |review| %>
+                      <p><%= review.content %> ⭐️</p>
+                      <% end %>
 
                     </div>
                     <div class="modal-footer">
