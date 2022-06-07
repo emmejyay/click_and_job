@@ -45,24 +45,24 @@
   </div>
 
 
-      <div class="job_application">
-        <% if !current_user.employer %>
-          <%= simple_form_for([@job, @request]) do |f| %>
-            <%= f.input :status, value: 'pending', input_html: {hidden: true} %>
-            <%= f.submit 'Apply', class: 'btn btn-primary'%>
-          <% end %>
-        <% else %>
-          <% if @job.requests.find_by(status: "accepted") %>
-            <% request = @job.requests.find_by(status: "accepted") %>
+  <div class="job_application">
+    <% if !current_user.employer %>
+      <%= simple_form_for([@job, @request]) do |f| %>
+        <%= f.input :status, value: 'pending', input_html: {hidden: true} %>
+        <%= f.submit 'Apply', class: 'btn btn-primary'%>
+      <% end %>
+    <% else %>
+      <% if @job.requests.find_by(status: "accepted") %>
+        <% request = @job.requests.find_by(status: "accepted") %>
 
 
-            <div class="card-product" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @job.id %>" >
-              <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>">
-              <div class="card-product-infos">
-                <h2><%=request.user.name%></h2>
-                <p><%= request.user.location %></p>
-              </div>
-            </div>
+        <div class="card-product" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @job.id %>" >
+          <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>">
+          <div class="card-product-infos">
+            <h2><%=request.user.name%></h2>
+            <p><%= request.user.location %></p>
+          </div>
+        </div>
 
 
 
@@ -119,10 +119,9 @@
                       <p><strong>Location: </strong><%= request.user.location %></p>
                       <p><strong>About </strong> <%=request.user.name%>: <%= request.user.description %></p>
                       <p><strong>Rating:</strong> <%= request.user.avg_rating %> ⭐️</p>
-                      <%# <p><strong>Review:</strong> <% request.job.reviews.each do |review| %>
-                      <%# <p><%= review.content ⭐️</p>  %>
-                      <%# <% end %>
-
+                      <p><strong>Review:</strong> <% request.job.reviews.each do |review| %></p>
+                      <p><%= review.content * "⭐️"%></p>
+                      <% end %>
                     </div>
                     <div class="modal-footer">
                       <%= simple_form_for(request) do |f| %>
@@ -140,6 +139,5 @@
             <% end %>
           <% end %>
         <% end %>
-      </div>
-    </div>
+  </div>
 </div>
