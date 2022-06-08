@@ -26,7 +26,7 @@ class RequestsController < ApplicationController
   def update
     @request = Request.find(params[:id])
     @request.update(request_params)
-    redirect_to dashboard_path
+    redirect_to job_path(@request.job)
   end
 
   def destroy
@@ -38,6 +38,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:status)
+    params.require(:request).permit(:status, :job)
   end
 end
