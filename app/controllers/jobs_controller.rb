@@ -37,7 +37,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.user = @user
     if @job.save
-      redirect_to jobs_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -56,7 +56,7 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    redirect_to jobs_path # Need to change the redirect
+    redirect_to dashboard_path # Need to change the redirect
   end
 
   private

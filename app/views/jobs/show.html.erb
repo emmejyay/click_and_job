@@ -40,7 +40,7 @@
         <h5><%= @job.remuneration%>€</h5>
       </div>
       <%= link_to 'Back', '/jobs', class: 'btn btn-primary' %>
-      <%= link_to 'Delete Offer', job_path(@job), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+      <%= link_to 'Delete Offer', job_path(@job), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger mt-2' %>
     </div>
   </div>
 
@@ -53,6 +53,9 @@
       <% end %>
     <% else %>
       <% if @job.requests.find_by(status: "accepted") %>
+        <div class="request-header">
+          <h3>Accepted Application</h3>
+        </div>
         <% request = @job.requests.find_by(status: "accepted") %>
 
         <div class="card-product border border-success" type="" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @job.id %>" >
@@ -68,13 +71,26 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Request made for your job</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><strong>Accepted application:</strong></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <p><%= request.user.name %></p>
-                    <p><%= request.job.job_title %></p>
-                    <p><%= request.job.job_description %></p>
+                     <p><img class="avatar-large" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"></p>
+                      <h1><strong><%=request.user.name%></strong></h1>
+                      <p><strong>Location: </strong><%= request.user.location %></p>
+                      <p><strong>About <%=request.user.name%>:</strong> <%= request.user.description %></p>
+                      <div class="mb-2 d-flex align-content-center">
+                        <p class="mb-2 me-2"><strong><%=request.user.name%>'s skills: </strong></p>
+                          <% request.user.skills.each do |skill| %>
+                            <span class="tag me-1"><%=skill.name%></span>
+                          <% end %>
+                        </div>
+                      <p><strong>Rating:</strong> <%=  "⭐" * request.user.avg_rating %> </p>
+                      <p><strong>Reviews:</strong> <% request.job.user.reviews.each do |review| %></p>
+                        <% if review.recipient === request.user %>
+                          <p>"<%= review.content%>" -<%= review.writer.name %></p>
+                        <% end %>
+                      <% end %>
 
                   </div>
                   <div class="modal-footer">
@@ -92,6 +108,9 @@
               </div>
             </div>
           <% else %>
+            <div class="request-header">
+              <h3>Received Applications</h3>
+            </div>
             <% @job.requests.where(status: "pending").each do |request| %>
                 <div class="card-product" type="" data-bs-toggle="modal" data-bs-target="#exampleModal<%= request.id %>" >
                  <img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>">
