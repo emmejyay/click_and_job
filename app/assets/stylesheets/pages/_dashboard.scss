@@ -2,3 +2,14 @@
   display: flex;
   justify-content: space-around
 }
+
+.dashboard-header{
+  text-align: center;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+  background-color: rgba(0, 0, 0, 0.4)
+}
+
+.dashboard-header h1{
+  color: white;
+
+}
