@@ -61,6 +61,7 @@
             <h2><%=request.user.name%></h2>
             <p><%= request.user.location %></p>
           </div>
+          <i class="far fa-user-check"></i>
         </div>
 
             <div class="modal fade" id="exampleModal<%= @job.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -123,6 +124,7 @@
                         <%= f.input :status, label: false, input_html: {hidden: true, value: 'accepted'} %>
                         <%= f.submit "Accept", class:"btn btn-secondary" %>
                       <% end %>
+
                       <%= simple_form_for(request) do |f| %>
                         <%= f.input :status, label: false, input_html: {hidden: true, value: 'declined'} %>
                         <%= f.submit "Decline", class:"btn btn-secondary" %>
