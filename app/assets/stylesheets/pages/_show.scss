@@ -71,14 +71,17 @@
   position: relative;
   top: -589px;
   left: 262px;
+
   h4 {
         /* border: 0.5px solid black; */
     text-align: center;
     font-size: 18px;
-    border-radius: 40px;
-    width: 38px;
-    height: 24px;
-    background: red;
+    background: rgba($color: red, $alpha: 0.8);
     color: white;
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    padding: 8px;
+    font-weight: bold;
   }
 }
