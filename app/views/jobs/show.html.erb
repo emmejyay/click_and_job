@@ -93,16 +93,25 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Application from: </h5>
+                      <h5 class="modal-title" id="exampleModalLabel"><strong>Application from:</strong></h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <p> <strong><%=request.user.name%> </strong><img class="avatar" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"></p>
+                      <p><img class="avatar-large" alt="Avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= request.user.nickname %>"></p>
+                      <h1><strong><%=request.user.name%></strong></h1>
                       <p><strong>Location: </strong><%= request.user.location %></p>
-                      <p><strong>About </strong> <%=request.user.name%>: <%= request.user.description %></p>
+                      <p><strong>About <%=request.user.name%>:</strong> <%= request.user.description %></p>
+                      <div class="mb-2 d-flex align-content-center">
+                        <p class="mb-2 me-2"><strong><%=request.user.name%>'s skills: </strong></p>
+                          <% request.user.skills.each do |skill| %>
+                            <span class="tag me-1"><%=skill.name%></span>
+                          <% end %>
+                        </div>
                       <p><strong>Rating:</strong> <%=  "⭐" * request.user.avg_rating %> </p>
-                      <p><strong>Review:</strong> <% request.job.reviews.each do |review| %></p>
-                      <p><%= review.content%></p>
+                      <p><strong>Reviews:</strong> <% request.job.reviews.each do |review| %></p>
+                        <% if review.recipient === request.user %>
+                          <p>"<%= review.content%>" -<%= review.writer.name %></p>
+                        <% end %>
                       <% end %>
                     </div>
                     <div class="modal-footer">
