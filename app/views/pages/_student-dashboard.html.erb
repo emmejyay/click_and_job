@@ -1,27 +1,13 @@
 <div>
- <div class="d-flex">
-    <div>
-      <% if !current_user.employer %>
-        <img class="avatar-large" src= "https://kitt.lewagon.com/placeholder/users/<%= current_user.nickname %>">
-      <% else %>
-        <img class="avatar-large" alt="Company avatar" src= "<%= current_user.img_url %>">
-      <% end %>
-    </div>
-    <div>
-      <% if !current_user.employer %>
-        <h1 class= "mb-0" ><%= current_user.name %></h1>
-      <% else %>
-        <h1><%= current_user.company %></h1>
-      <% end %>
-      <br>
-      <h3><%= "⭐" * current_user.avg_rating.to_i %></h3>
-      <h3><%= current_user.location %></h3>
-      <h3><%= current_user.description %></h3>
+ <div>
+    <div class="dashboard-header">
+      <h1><strong>My Dashboard</strong></h1>
     </div>
 
   </div>
   <div class="test">
     <div class="wrapper">
+
       <% current_user.requests.each do |request| %>
       <div class="student-card-show">
         <%= link_to image_tag(request.job.img_url), dashboard_path, class: "card-img-top" %>
