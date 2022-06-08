@@ -1,59 +1,76 @@
 <div class="home-container">
     <div class="banner">
     <div class="container">
-      <h1>Click & job</h1>
-      <p>As easy as it sounds!</p>
-      <% if current_user  %>
-        <a class="btn btn-flat" href= "<%= jobs_path%>" >Find jobs around you!</a>
-      <% else %>
-        <a class="btn btn-flat" href= "<%= new_user_registration_path%>" >Get started!</a>
+      <div class="home-title">
+        <h1>Click & job</h1>
+        <p>As easy as it sounds!</p>
+      </div>
+      <% if current_user %>
+        <a class="btn btn-flat" href= "<%= jobs_path%>" >Get sarted</a>
+      <% elsif %>
+        <a class="btn btn-flat" href= "<%= new_user_registration_path%>" >Get started</a>
       <% end %>
     </div>
   </div>
-    <div class="blog-card">
-      <div class="meta">
-        <div class="photo" style="background-image: url(https://img.freepik.com/free-vector/tiny-people-searching-business-opportunities_74855-19928.jpg?w=360)"></div>
-        <ul class="details">
-          <li class="author"><a href="#">Sign up!</a></li>
-          <li class="date">Find a job that suits you</li>
-          <li class="date">Work </li>
-          <li class="tags">
-            <ul>
-              <li><a href="#">It's that easy!</a></li>
-            </ul>
-          </li>
-        </ul>
+
+    <div class="home-card-container">
+      <div class="blog-card">
+        <div class="meta">
+          <div class="photo" style="background-image: url(https://img.freepik.com/free-vector/tiny-people-searching-business-opportunities_74855-19928.jpg?w=360)"></div>
+          <ul class="details">
+            <li class="author"><a href="#">Sign up!</a></li>
+            <br>
+            <li class="date">Find a job that suits you</li>
+            <br>
+            <li class="date">Work </li>
+            <br>
+            <li class="tags">
+              <ul>
+                <li><a href="#">It's that easy!</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="description">
+          <h1>Get yourself an extra source of income</h1>
+          <h2><strong>Clik&Job</strong> provides short term contract jobs on short notice!</h2>
+          <p> As a student, have you ever struggled to make ends meet by the end of the month?</p>
+          <p>We have the solution for you. Just follow the steps indicated to the left and find your ideal job!</p>
+
+        </div>
       </div>
-      <div class="description">
-        <h1>Want to make extra money?</h1>
-        <h2>Clik&Job provides short term contract jobs on short notice!</h2>
-        <p> Describe the advantage on a student point of view</p>
+      <div class="blog-card alt">
+        <div class="meta">
+          <div class="photo" style="background-image: url(https://jobs4ukr.com/uploads/2022/02/26/LYpPA5xCNc2EZfbNt8ZodmOSwlyx0s2yvN3x5dAc_talent.png)"></div>
+          <ul class="details">
+            <li class="author"><a href="#">Fill out a simple form to be able to quickly post a job on the app</a></li>
+            <br>
+            <li class="date">Receive applications from matching profiles</li>
+            <br>
+            <li class="date">Let's get that business running!</li>
 
+          </ul>
+        </div>
+        <div class="description">
+          <h1>Urgent need for staff?</h1>
+          <h2><strong>Click&job</strong> has your back!</h2>
+          <p>Sign up and remove the administrative burden of posting open positions</p>
+          <p>No more late minute stress </p>
+          <p>Just post your open position and receive requests from available students</p>
+        </div>
       </div>
-    </div>
-    <div class="blog-card alt">
-      <div class="meta">
-        <div class="photo" style="background-image: url(https://jobs4ukr.com/uploads/2022/02/26/LYpPA5xCNc2EZfbNt8ZodmOSwlyx0s2yvN3x5dAc_talent.png)"></div>
-        <ul class="details">
-          <li class="author"><a href="#">Post your available jobs on the app</a></li>
-          <li class="date">Receive applications from matching profiles</li>
-          <li class="date">Let's get that business running!</li>
 
-        </ul>
+  <div class="blog-card">
+        <div class="meta">
+          <div class="photo" style="background-image: url(https://jobtic.ch/img/magazine/1373_444x293if.jpg)"></div>
+
+        </div>
+        <div class="description">
+          <h1>Let's get started</h1>
+          <h2><strong>Sign up</strong> now and make your life easier</h2>
+          <p>Wether you are a student or a business owner, we provide you a simple solution for a common issue!</p>
+          <p></p>
+        </div>
       </div>
-      <div class="description">
-        <h1>Last minute job position to fulfill?</h1>
-        <h2>We've got the solution for you!</h2>
-        <p>With Click&Job you don't need to worry about blablabla (to complete), in a simple click, post the job
-        dddddd
-        ddddddddd
-        d
-         </p>
-
-
-      </div>
-    </div>
-
-
-
+  </div>
 </div>
