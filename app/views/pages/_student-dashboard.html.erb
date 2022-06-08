@@ -24,7 +24,7 @@
     <div class="wrapper">
       <% current_user.requests.each do |request| %>
       <div class="student-card-show">
-        <%= link_to image_tag(request.job.img_url), job_path(request.job), class: "card-img-top" %>
+        <%= link_to image_tag(request.job.img_url), dashboard_path, class: "card-img-top" %>
           <div class="student-card__details">
             <h4><strong>Required skills: </strong></h4>
             <% request.job.skills.each do |skill| %>
