@@ -72,7 +72,7 @@
                           <% end %>
                         </div>
                       <p><strong>Rating:</strong> <%=  "⭐" * request.user.avg_rating %> </p>
-                      <p><strong>Reviews:</strong> <% request.job.user.reviews.each do |review| %></p>
+                      <p><strong>Reviews:</strong> <% request.job.reviews.each do |review| %></p>
                         <% if review.recipient === request.user %>
                           <p>"<%= review.content%>" -<%= review.writer.name %></p>
                         <% end %>
