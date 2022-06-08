@@ -1,18 +1,18 @@
-<div class="ms-3 me-3 ">
+<div class="ms-3 me-3 d-flex justify-content-center align-content-flex-start">
    <div>
     <% if !current_user.employer %>
       <h1 class= "m-0"><strong>Dashboard for: </strong><%= current_user.name %></h1>
     <% else %>
       <h1 class= "m-0">Dashboard for: <%= current_user.company %></h1>
     <% end %>
-  </div>
+    </div>
   <div>
     <h3 class= "m-0"><%= current_user.location %></h3>
   </div>
 </div>
 
 <div class="ms-3 me-3 request-header">
-  <h3>Posted Jobs:</h3>
+  <h3>Posted Jobs</h3>
 </div>
 
 
