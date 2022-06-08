@@ -1,12 +1,14 @@
 <div class="home-container">
     <div class="banner" style="https://kenzhypermarket.com/wp-content/uploads/2019/03/Career-Banner.jpg">
     <div class="container">
-      <h1>Click & job</h1>
-      <p>As easy as it sounds!</p>
-      <% if current_user  %>
-        <a class="btn btn-flat" href= "<%= jobs_path%>" >Find jobs around you!</a>
-      <% else %>
-        <a class="btn btn-flat" href= "<%= new_user_registration_path%>" >Get started!</a>
+      <div class="home-title">
+        <h1>Click & job</h1>
+        <p>As easy as it sounds!</p>
+      </div>
+      <% if current_user %>
+        <a class="btn btn-flat" href= "<%= jobs_path%>" >Get sarted</a>
+      <% elsif %>
+        <a class="btn btn-flat" href= "<%= new_user_registration_path%>" >Get started</a>
       <% end %>
     </div>
   </div>
@@ -61,21 +63,13 @@
   <div class="blog-card">
         <div class="meta">
           <div class="photo" style="background-image: url(https://jobtic.ch/img/magazine/1373_444x293if.jpg)"></div>
-          <ul class="details">
-            <li class="author"><a href="#">Sign up!</a></li>
-            <li class="date">Find a job that suits you</li>
-            <li class="date">Work </li>
-            <li class="tags">
-              <ul>
-                <li><a href="#">It's that easy!</a></li>
-              </ul>
-            </li>
-          </ul>
+
         </div>
         <div class="description">
           <h1>Let's get started</h1>
-          <h2><strong>Sign up</strong> know and make your life easier</h2>
-          <p> Describe the advantage on a student point of view</p>
+          <h2><strong>Sign up</strong> now and make your life easier</h2>
+          <p>Wether you are a student or a business owner, we provide you a simple solution for a common issue!</p>
+          <p></p>
         </div>
       </div>
   </div>
