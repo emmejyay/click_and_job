@@ -54,7 +54,11 @@
             </div>
           </div>
       </div>
-        <% if job.requests.count > 0 %>
+        <% if job.requests.find_by(status: "accepted")%>
+            <div class="notification">
+              <h4>✅</h4>
+            </div>
+        <% elsif job.requests.count > 0 %>
             <div class="notification">
               <h4><%= job.requests.count %></h4>
             </div>
