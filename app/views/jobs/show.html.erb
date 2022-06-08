@@ -79,12 +79,12 @@
                   <div class="modal-footer">
                     <%= simple_form_for(request) do |f| %>
                       <%= f.input :status, label: false, input_html: {hidden: true, value: 'accepted'} %>
-                      <%= f.submit "Accept" %>
+                      <%= f.submit "Accept", class:"btn btn-primary"%>
                     <% end %>
 
                     <%= simple_form_for(request) do |f| %>
                       <%= f.input :status, label: false, input_html: {hidden: true, value: 'declined'} %>
-                      <%= f.submit "Decline" %>
+                      <%= f.submit "Decline", class:"btn btn-primary" %>
                     <% end %>
                   </div>
                 </div>
@@ -121,11 +121,11 @@
                     <div class="modal-footer">
                       <%= simple_form_for(request) do |f| %>
                         <%= f.input :status, label: false, input_html: {hidden: true, value: 'accepted'} %>
-                        <%= f.submit "Accept" %>
+                        <%= f.submit "Accept", class:"btn btn-secondary" %>
                       <% end %>
                       <%= simple_form_for(request) do |f| %>
                         <%= f.input :status, label: false, input_html: {hidden: true, value: 'declined'} %>
-                        <%= f.submit "Decline" %>
+                        <%= f.submit "Decline", class:"btn btn-secondary" %>
                       <% end %>
                     </div>
                   </div>
