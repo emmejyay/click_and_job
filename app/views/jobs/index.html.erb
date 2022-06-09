@@ -18,7 +18,7 @@
 
 
 <div class="content">
-  <div class="d-flex justify-content-center row">
+  <div class="cards-grid">
     <% @jobs.each do |job| %>
       <!-- A div with card class for the card  -->
       <div class="card-show position-relative" style="width: 20rem;">
@@ -62,10 +62,12 @@
                       <p><strong>Company description:  </strong><%= job.user.description %></p>
                       <p><strong>Rating:  </strong><%= "⭐" * job.user.avg_rating.to_i  %></p>
                       <p><strong>Reviews:</strong> <% job.reviews.each do |review| %></p>
-                        <% if review.recipient === job.user %>
+                      <ul class="list">
+                        <li><% if review.recipient === job.user %>
                           <p>"<%= review.content%>" -<%= review.writer.name %></p>
-                        <% end %>
+                        <% end %></li>
                       <% end %>
+                      </ul>
                     </div>
                   </div>
                 </div>
