@@ -7,7 +7,7 @@ class JobsController < ApplicationController
         OR jobs.location @@ :query \
         OR jobs.job_description @@ :query \
         OR skills.name @@ :query \ "
-      @jobs = Job.joins(:skills).where(sql_query, query: "%#{params[:query]}%")
+      @jobs = Job.joins(:skills).where(sql_query, query: "%#{params[:query]}%").distinct
     else
       @jobs = Job.all
     end
