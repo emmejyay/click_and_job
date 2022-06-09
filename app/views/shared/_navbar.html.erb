@@ -10,11 +10,11 @@
 
         <% if user_signed_in? %>
          <% if current_user.employer %>
-            <li><%= link_to "New Job", new_job_path, class:"btn btn-ghost" %></li>
+            <li><%= link_to "New Job", new_job_path, class:"btn btn-ghost", id:"link_navbar" %></li>
           <% end %>
-          <li><%= link_to "Jobs Available", jobs_path, class:"btn btn-ghost" %></li>
-          <li><%= link_to "Dashboard", dashboard_path, class:"btn btn-ghost" %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-ghost" %></li>
+          <li><%= link_to "Jobs Available", jobs_path, class:"btn btn-ghost", id:"link_navbar" %></li>
+          <li><%= link_to "Dashboard", dashboard_path, class:"btn btn-ghost", id:"link_navbar" %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-ghost", id:"link_navbar" %></li>
 
           <% if !current_user.employer %>
             <li><img class="avatar" src= "https://kitt.lewagon.com/placeholder/users/<%= current_user.nickname %>"></li>
@@ -22,7 +22,7 @@
             <li><img class="avatar" src= "<%= current_user.img_url %>"></li>
           <% end %>
         <%else %>
-          <li><%= link_to "Log in", new_user_session_path, class: "btn btn-ghost" %></li>
+          <li><%= link_to "Log in", new_user_session_path, class: "btn btn-ghost", id:"link_navbar" %></li>
         <% end %>
       </ul>
     </div>
