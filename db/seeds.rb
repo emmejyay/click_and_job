@@ -194,21 +194,21 @@ puts "Creating reviews"
 
 # reviews of students
 review_meghan = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
-# review_maxime = Review.create!(writer: emp_niko, recipient: maxime, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
-# review_ted = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
-# review_jack = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
-# review_tony = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_maxime = Review.create!(writer: emp_niko, recipient: maxime, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
+review_ted = Review.create!(writer: emp_antoine, recipient: ted, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_jack = Review.create!(writer: emp_antoine, recipient: jack, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_tony = Review.create!(writer: emp_antoine, recipient: tony, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
 review_pierrick = Review.create!(writer: emp_jack, recipient: pierrick, job: footballer, content: "Aggressive player, even gave his own teacher a black eye. Beware.")
-# review_archi = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
-# review_sebastien = Review.create!(writer: emp_niko, recipient: sebastien, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
-# review_antoine = Review.create!(writer: emp_niko, recipient: maxime, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
-# review_val = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
-# review_valentin = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_archi = Review.create!(writer: emp_antoine, recipient: archi, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_sebastien = Review.create!(writer: emp_maxime, recipient: sebastien, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
+review_antoine = Review.create!(writer: emp_maxime, recipient: antoine, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
+review_val = Review.create!(writer: emp_antoine, recipient: val, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_valentin = Review.create!(writer: emp_antoine, recipient: valentin, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
 review_mouton = Review.create!(writer: emp_valentin, recipient: mouton, job: workshop_mgr, content: "Very nice guy and knows his car_maintenance!")
-# review_augusto = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker, content: "Great dog walker, understands different temperaments. Highly recommend!")
-# review_george = Review.create!(writer: emp_niko, recipient: maxime, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
+review_augusto = Review.create!(writer: emp_antoine, recipient: augusto, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
+review_george = Review.create!(writer: emp_niko, recipient: george, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
 review_niko = Review.create!(writer: emp_maxime, recipient: niko, job: line_cook, content: "A beast in the kitchen.  Will get you through the dinner rush and whip your staff into shape!")
-# review_pedro = Review.create!(writer: emp_niko, recipient: pedro, job: tech_support, content: "Very helpful tech support, knows a lot about web development and CSS.")
+review_pedro = Review.create!(writer: emp_niko, recipient: pedro, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business..")
 
 # reviews of employers
 review_emp_jack = Review.create!(writer: pierrick, recipient: emp_jack, job: footballer, content: "Cool app and great management!  Would happily sub as a player again.")
@@ -217,6 +217,6 @@ review_emp_valentin = Review.create!(writer: mouton, recipient: emp_valentin, jo
 review_emp_maxime_1 = Review.create!(writer: niko, recipient: emp_maxime, job: line_cook, content: "Fancy restaurant with all new equipment.  Very clean. Looking to apply for a full time position.")
 review_emp_maxime_2 = Review.create!(writer: meghan, recipient: emp_maxime, job: server, content: "Fancy restaurant with all new equipment.  Very clean. Looking to apply for a full time position.")
 review_emp_maxime_3 = Review.create!(writer: ted, recipient: emp_maxime, job: server, content: "Fancy restaurant with all new equipment.  Very clean. Looking to apply for a full time position.")
-# review_emp_niko = Review.create!(writer: pedro, recipient: emp_niko, job: tech_support, content: "Nice guy who really knows his code. Also a great cafe. The cats are friendly!")
+review_emp_niko = Review.create!(writer: pedro, recipient: emp_niko, job: server, content: "Nice guy who really knows his code. Also a great cafe. The cats are friendly!")
 
 puts "Database Created!"

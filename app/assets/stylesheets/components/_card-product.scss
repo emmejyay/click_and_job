@@ -9,7 +9,13 @@
   align-items: center;
   border-radius: 12px;
   transition: 1s;
-}
+  position: relative;
+    i{
+      position: absolute;
+      left: 430px;
+    }
+  }
+
 
 
 
