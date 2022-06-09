@@ -62,10 +62,12 @@
                       <p><strong>Company description:  </strong><%= job.user.description %></p>
                       <p><strong>Rating:  </strong><%= "⭐" * job.user.avg_rating.to_i  %></p>
                       <p><strong>Reviews:</strong> <% job.reviews.each do |review| %></p>
-                      <ul class="list">
+                      <div>
+                        <ul class="list">
                         <li><% if review.recipient === job.user %>
                           <p>"<%= review.content%>" -<%= review.writer.name %></p>
                         <% end %></li>
+                      </div>
                       <% end %>
                       </ul>
                     </div>
