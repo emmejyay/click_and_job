@@ -101,7 +101,7 @@ tech_support_1 = Job.create!(user: emp_niko, job_title: "Web Developer", locatio
 cashier_2 = Job.create!(user: emp_meghan, job_title: "Cashier", location: "Eppegem, Belgium", job_description: "Cashier needed to check out customers for short shift", start_date: DateTime.now, end_date: DateTime.now + 8/24r, remuneration: rand(15..25), img_url: "https://www.thebalancecareers.com/thmb/HGzUrQnNC15vOWCOSyga9KjNncc=/735x0/GettyImages-1037570160-235dbc4d28a94441ac4b0fdca2cdc5b2.jpg")
 tech_support_3 = Job.create!(user: emp_niko, job_title: "Web Development TA", location: "Avenue Emile Vandervelde 182, Rosières, Belgium", job_description: "Knowledgeable person needed to help run a web development workshop session.", start_date: DateTime.now, end_date: DateTime.now + 7/24r, remuneration: rand(15..25), img_url: "https://dailynationtoday.com/wp-content/uploads/2021/10/201009-codingcomputer-stock.jpg")
 barista_4 = Job.create!(user: emp_meghan, job_title: "Barman", location: "Rue de la Sarthe 279, Houthalen, Belgium", job_description: "Skilled barman needed for open shift to serve our customers with a smile!", start_date: DateTime.now, end_date: DateTime.now + 8/24r, remuneration: rand(15..25), img_url: "https://www.deltawatersofteners.be/assets/media/16/koffiezetten-als-een-heuse-barista-ontdek-onze-tips.jpg")
-dog_walker_5 = Job.create!(user: emp_antoine, job_title: "Dog Walker", location: "Hugo Losschaertstraat 8000, Bruges, Belgium", job_description: "Dog walker needed for Bruges client.", start_date: DateTime.now, end_date: DateTime.now + 8/24r, remuneration: rand(15..25), img_url: "https://assets.espace-autoentrepreneur.com/ruche_articles/pet-sitter-auto-entrepreneur/garde-animaux-auto-entrepreneur.jpeg")
+dog_walker_1 = Job.create!(user: emp_antoine, job_title: "Dog Walker", location: "Hugo Losschaertstraat 8000, Bruges, Belgium", job_description: "Dog walker needed for Bruges client.", start_date: DateTime.now, end_date: DateTime.now + 8/24r, remuneration: rand(15..25), img_url: "https://assets.espace-autoentrepreneur.com/ruche_articles/pet-sitter-auto-entrepreneur/garde-animaux-auto-entrepreneur.jpeg")
 
 
 puts "Creating skills"
@@ -193,7 +193,6 @@ dog_walker_1.skills << dog_walking
 dog_walker_2.skills << dog_walking
 dog_walker_3.skills << dog_walking
 dog_walker_4.skills << dog_walking
-dog_walker_5.skills << dog_walking
 workshop_mgr_1.skills << car_maintenance
 workshop_mgr_2.skills << car_maintenance
 workshop_mgr_3.skills << car_maintenance
