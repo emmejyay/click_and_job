@@ -37,13 +37,13 @@
                   } %>
               </div>
             </div>
-            <%= f.input :remuneration, :input_html => { :class => 'input_box' }, :label_html => { :class => 'form-label'} %>
+            <%= f.input :remuneration,label: 'Hourly pay' ,:input_html => { :class => 'input_box' }, :label_html => { :class => 'form-label'} %>
             <%= f.input :img_url, label: 'Image', :label_html => { :class => 'question-project form-label' }, :input_html => {:class => 'input_box'}  %>
             <%= f.input :location,
                     :label_html => { :class => 'form-label'},
                     input_html: { data: { geocoder_target: "location" },  :class => 'input_box' },
                     wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['pk.eyJ1IjoibWF4aWphcHMiLCJhIjoiY2w0M3cxa3R5MTdsbDNkcjJkMXZzbTZheSJ9.W7KeJ6pL9tCCRkgiNNIkXA'] }} %>
-            <%= f.button :submit, class: "btn btn-secondary", id: "form_button" %>
+            <%= f.button :submit, class: "btn btn-primary", id: "form_button" %>
         </div>
       <% end %>
     </div>
