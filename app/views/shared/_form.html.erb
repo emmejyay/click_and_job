@@ -4,12 +4,17 @@
         <div class="form-container">
           <img src="https://play-lh.googleusercontent.com/DBmnKeN_RYafeJg_p30pMeOmL0pagMlm6r3kIHNaFSdVIUAB5pimapbOTQ0Kja6DGMM" id="form_logo" class="rounded-circle shadow-4">
           <br>
-            <%= f.input :job_title, :input_html => { :class => 'input_box' }, :label_html => { :class => 'form_label'} %>
-            <%= f.input :job_description,:input_html => { :class => 'input_box' } %>
-            <div class="date-section-form" >
-              <div>
-                <%= f.label :start_date %>
+            <div class="form-group">
+              <%= f.input :job_title, :input_html => { :class => 'input_box' }, :label_html => { :class => 'form-label'} %>
+              <%= f.input :job_description,:input_html => { :class => 'input_box' }, :label_html => { :class => 'form-label'} %>
+            </div>
+            <%# <div class="date-section-form" > %>
+            <div class="row g-3" style="margin-bottom: 10px">
+              <%# <div class="date-inputs"> %>
+              <div class="col">
+                <%= f.label :start_date, :label_html => { :class => 'form-label'} %>
                 <%= f.text_field :start_date, :input_html => { :class => 'input_box' },
+                  class: 'form-control input_box',
                   data: {
                     controller: "flatpickr",
                     flatpickr_alt_format: t("date.formats.long"),
@@ -18,9 +23,11 @@
                     flatpickr_enable_time: true,
                 } %>
               </div>
-              <div>
-                <%= f.label :end_date, :label_html => { :class => 'stars'} %>
+              <%# <div class="date-inputs"> %>
+              <div class="col">
+                <%= f.label :end_date, :label_html => { :class => 'form-label'} %>
                 <%= f.text_field :end_date, :input_html => { :class => 'input_box' },
+                  class: 'form-control input_box',
                   data: {
                     controller: "flatpickr",
                     flatpickr_alt_format: t("date.formats.long"),
@@ -30,9 +37,10 @@
                   } %>
               </div>
             </div>
-            <%= f.input :remuneration, :input_html => { :class => 'input_box' } %>
-            <%= f.input :img_url, :label_html => { :class => 'question-project' }, :input_html => {:class => 'input_box'}  %>
+            <%= f.input :remuneration, :input_html => { :class => 'input_box' }, :label_html => { :class => 'form-label'} %>
+            <%= f.input :img_url, label: 'Image', :label_html => { :class => 'question-project form-label' }, :input_html => {:class => 'input_box'}  %>
             <%= f.input :location,
+                    :label_html => { :class => 'form-label'},
                     input_html: { data: { geocoder_target: "location" },  :class => 'input_box' },
                     wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['pk.eyJ1IjoibWF4aWphcHMiLCJhIjoiY2w0M3cxa3R5MTdsbDNkcjJkMXZzbTZheSJ9.W7KeJ6pL9tCCRkgiNNIkXA'] }} %>
             <%= f.button :submit, class: "btn btn-secondary", id: "form_button" %>
