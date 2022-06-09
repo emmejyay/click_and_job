@@ -6,10 +6,29 @@
 .dashboard-header{
   text-align: center;
   font-family: "Nunito", "Helvetica", "sans-serif";
-  background-color: rgba(0, 0, 0, 0.4)
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .dashboard-header h1{
   color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+  font-weight: 500;
+  line-height: 1.2;
 
+}
+
+.posted-jobs-header{
+  text-align: center;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+  background-color: rgba(0, 0, 0, 0.4)
+}
+
+.posted-jobs-header h2{
+  color: white;
+  background-color: #c1c6cc;
+  margin-bottom: 0,5rem;
+  text-align: center;
+  font-weight: bold;
 }
