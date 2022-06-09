@@ -3,4 +3,53 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  input {
+    border-radius: 10px;
+  }
+}
+
+.date-inputs {
+  input {
+    width: 100%;
+  }
+}
+
+.form-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  width: 550px;
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 300px rgba(0,0,0,0.2);
+  background-color: rgba($color: grey, $alpha: 0.8);
+
+}
+
+.background{
+  background-color: silver;
+}
+
+.form_label{
+  font-size: 18px;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+}
+
+.input_box{
+  border-radius: 10px;
+}
+
+#form_logo{
+  height: 58px;
+  width: 58px;
+  position: absolute;
+  left: 237px;
+  top: 4px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+abbr[title="required"] {
+  display: none;
 }
