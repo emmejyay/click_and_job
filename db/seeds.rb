@@ -128,11 +128,8 @@ meghan.skills << web_development
 meghan.skills << design
 meghan.skills << dog_walking
 meghan.skills << pet_sitting
-maxime.skills << web_development
 maxime.skills << waitstaffing
 maxime.skills << cleaning
-maxime.skills << sports
-ted.skills << web_development
 ted.skills << design
 ted.skills << football
 ted.skills << waitstaffing
