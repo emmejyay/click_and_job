@@ -4,3 +4,11 @@
   justify-content: space-around;
   align-items: center;
 }
+
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 550px;
+}
