@@ -187,9 +187,6 @@ puts "Creating job skills"
 # JobSkill.create(job: footballer, skill: football)
 footballer_1.skills << football
 footballer_2.skills << football
-footballer_3.skills << football
-footballer_4.skills << football
-footballer_5.skills << football
 dog_walker_1.skills << dog_walking
 dog_walker_2.skills << dog_walking
 dog_walker_3.skills << dog_walking
