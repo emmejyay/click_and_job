@@ -32,7 +32,8 @@ class RequestsController < ApplicationController
   def destroy
     @request = Request.find(params[:id])
     @request.destroy
-    redirect_to dashboard_path
+    @job = Job.find(params[:job_id])
+    redirect_to job_path(@job)
   end
 
   private
