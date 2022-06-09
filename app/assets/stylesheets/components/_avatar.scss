@@ -27,3 +27,17 @@
   border: white 1px solid;
   background-size: contain;
 }
+
+.rounded-circle-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  margin: 5px !important;
+  background-color: white;
+  border-color: black;
+  box-shadow: 0 1px 8px rgba(2, 43, 131, 0.5);
+  transition: .5s ease;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
