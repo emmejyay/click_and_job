@@ -63,7 +63,9 @@ workshop_mgr_4 = Job.create!(user: emp_valentin, job_title: "Workshop Instructor
 workshop_mgr_5 = Job.create!(user: emp_valentin, job_title: "Workshop Instructor", location: "Kerkstraat 69, Beuzet, Belgium", job_description: "Client is looking for someone to help host a classic car maintenance workshop.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1628577478162-d4d00467c627?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDl8fGNhciUyMHdvcmtzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
 
 line_cook = Job.create!(user: emp_maxime, job_title: "Line Cook", location: "Boulevard du Souverain 36, Brussels, Belgium", job_description: "Line cook needed to work Friday evening dinner rush and clean up after.", start_date: DateTime.now + 6/24r, end_date: DateTime.now + 10/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1590577976322-3d2d6e2130d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
-server = Job.create!(user: emp_maxime, job_title: "Server", location: "Avenue de l'Université 10, Brussels, Belgium", job_description: "Server needed to work Friday evening dinner rush and clean up after.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1512485800893-b08ec1ea59b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMHNlcnZlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+server_1 = Job.create!(user: emp_maxime, job_title: "Server", location: "Avenue de l'Université 10, Brussels, Belgium", job_description: "Server needed to work Friday evening dinner rush and clean up after.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1512485800893-b08ec1ea59b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMHNlcnZlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+server_2 = Job.create!(user: emp_niko, job_title: "Server", location: "Brussels, Belgium", job_description: "Server needed to work afternon open shift.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuLncVz2eaJsnPzmoZNGS4YnPQNYv0Z8aaOg&usqp=CAU")
+server_3 = Job.create!(user: emp_meghan, job_title: "Server", location: "Mechelen, Belgium", job_description: "Server needed for early morning breakfast shift.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBjyxwGvxRZC-7D2M7FsvCIhEcZcWZ9ObkHw&usqp=CAU")
 
 tech_support_1 = Job.create!(user: emp_niko, job_title: "Web Development TA", location: "Korte Noordsstraat 266, Vaalbeek, Belgium", job_description: "Knowledgeable person needed to help run a web development workshop session.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dGVjaCUyMHN1cHBvcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
 tech_support_2 = Job.create!(user: emp_niko, job_title: "Web Development TA", location: "Strepestraat 240, Labuissière, Belgium", job_description: "Knowledgeable person needed to help run a web development workshop session.", start_date: DateTime.now, end_date: DateTime.now + 1/24r, remuneration: rand(15..25), img_url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dGVjaCUyMHN1cHBvcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
@@ -201,8 +203,12 @@ workshop_mgr_4.skills << car_maintenance
 workshop_mgr_5.skills << car_maintenance
 line_cook.skills << cooking
 line_cook.skills << cleaning
-server.skills << waitstaffing
-server.skills << cleaning
+server_1.skills << waitstaffing
+server_1.skills << cleaning
+server_2.skills << waitstaffing
+server_2.skills << cleaning
+server_3.skills << waitstaffing
+server_3.skills << cleaning
 tech_support_1.skills << web_development
 tech_support_1.skills << design
 tech_support_2.skills << web_development
@@ -257,12 +263,12 @@ dog_walker_st_req_2 = Request.create(user: pierrick, job: dog_walker_1, status: 
 # tech_support_st_req_1 = Request.create(user: george, job: tech_support, status: "pending")
 # tech_support_st_req_1 = Request.create(user: sebastien, job: tech_support, status: "pending")
 
-server_st_req_1 = Request.create(user: sebastien, job: server, status: "pending")
-server_st_req_2 = Request.create(user: ted, job: server, status: "pending")
-server_st_req_3 = Request.create(user: tony, job: server, status: "pending")
-server_st_req_4 = Request.create(user: pedro, job: server, status: "pending")
-server_st_req_5 = Request.create(user: niko, job: server, status: "pending")
-server_st_req_6 = Request.create(user: archi, job: server, status: "pending")
+server_st_req_1 = Request.create(user: sebastien, job: server_1, status: "pending")
+server_st_req_2 = Request.create(user: ted, job: server_1, status: "pending")
+server_st_req_3 = Request.create(user: tony, job: server_1, status: "pending")
+server_st_req_4 = Request.create(user: pedro, job: server_1, status: "pending")
+server_st_req_5 = Request.create(user: niko, job: server_1, status: "pending")
+server_st_req_6 = Request.create(user: archi, job: server_1, status: "pending")
 
 line_cook_st_req_1 = Request.create(user: tony, job: line_cook, status: "pending")
 line_cook_st_req_2 = Request.create(user: pedro, job: line_cook, status: "pending")
@@ -284,30 +290,30 @@ puts "Creating reviews"
 
 # reviews of students
 review_meghan = Review.create!(writer: emp_antoine, recipient: meghan, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
-review_maxime = Review.create!(writer: emp_niko, recipient: maxime, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
-review_ted = Review.create!(writer: emp_niko, recipient: ted, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
-review_ted = Review.create!(writer: emp_meghan, recipient: ted, job: server, content: "Always happy to work with Ted. Great personality and my customers love him.")
+review_maxime = Review.create!(writer: emp_niko, recipient: maxime, job: server_1, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
+review_ted = Review.create!(writer: emp_niko, recipient: ted, job: server_1, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
+review_ted = Review.create!(writer: emp_meghan, recipient: ted, job: server_1, content: "Always happy to work with Ted. Great personality and my customers love him.")
 review_jack = Review.create!(writer: emp_antoine, recipient: jack, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
 review_tony = Review.create!(writer: emp_antoine, recipient: tony, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
 review_pierrick = Review.create!(writer: emp_jack, recipient: pierrick, job: footballer_1, content: "Aggressive player, even gave his own teacher a black eye. Beware.")
 review_archi = Review.create!(writer: emp_antoine, recipient: archi, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
-review_sebastien = Review.create!(writer: emp_maxime, recipient: sebastien, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
-review_antoine = Review.create!(writer: emp_maxime, recipient: antoine, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
+review_sebastien = Review.create!(writer: emp_maxime, recipient: sebastien, job: server_1, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
+review_antoine = Review.create!(writer: emp_maxime, recipient: antoine, job: server_1, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
 review_val = Review.create!(writer: emp_antoine, recipient: val, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
 review_valentin = Review.create!(writer: emp_antoine, recipient: valentin, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
 review_mouton = Review.create!(writer: emp_valentin, recipient: mouton, job: workshop_mgr_1, content: "Very nice guy and knows his car_maintenance!")
 review_augusto = Review.create!(writer: emp_antoine, recipient: augusto, job: dog_walker_1, content: "Great dog walker, understands different temperaments. Highly recommend!")
-review_george = Review.create!(writer: emp_niko, recipient: george, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
+review_george = Review.create!(writer: emp_niko, recipient: george, job: server_1, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business.")
 review_niko = Review.create!(writer: emp_maxime, recipient: niko, job: line_cook, content: "A beast in the kitchen.  Will get you through the dinner rush and whip your staff into shape!")
-review_pedro = Review.create!(writer: emp_niko, recipient: pedro, job: server, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business..")
+review_pedro = Review.create!(writer: emp_niko, recipient: pedro, job: server_1, content: "Very helpful around the restuarant, knows a lot about serving and running a restaurant business..")
 
 # reviews of employers
 review_emp_jack = Review.create!(writer: pierrick, recipient: emp_jack, job: footballer_1, content: "Cool app and great management!  Would happily sub as a player again.")
 review_emp_antoine = Review.create!(writer: meghan, recipient: emp_antoine, job: dog_walker_1, content: "Cool app and great management!  Very easy to find all the details you need for a successful walk.")
 review_emp_valentin = Review.create!(writer: mouton, recipient: emp_valentin, job: workshop_mgr_1, content: "Awesome location and great resource for classic car owners.  Also provided lunch!")
 review_emp_maxime_1 = Review.create!(writer: niko, recipient: emp_maxime, job: line_cook, content: "Fancy restaurant with all new equipment.  Very clean. Looking to apply for a full time position.")
-review_emp_maxime_2 = Review.create!(writer: meghan, recipient: emp_maxime, job: server, content: "Nice restaurant in a nice area.  Very organized and easy to learn the ropes quickly.")
-review_emp_maxime_3 = Review.create!(writer: ted, recipient: emp_maxime, job: server, content: "Fancy restaurant with all new equipment.  Very clean. Looking to apply for a full time position.")
-review_emp_niko = Review.create!(writer: pedro, recipient: emp_niko, job: server, content: "Nice guy who really knows his code. Also a great cafe. The cats are friendly!")
+review_emp_maxime_2 = Review.create!(writer: meghan, recipient: emp_maxime, job: server_1, content: "Nice restaurant in a nice area.  Very organized and easy to learn the ropes quickly.")
+review_emp_maxime_3 = Review.create!(writer: ted, recipient: emp_maxime, job: server_1, content: "Fancy restaurant with all new equipment.  Very clean. Looking to apply for a full time position.")
+review_emp_niko = Review.create!(writer: pedro, recipient: emp_niko, job: server_1, content: "Nice guy who really knows his code. Also a great cafe. The cats are friendly!")
 
 puts "Database Created!"
